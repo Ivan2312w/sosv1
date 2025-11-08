@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Birras - O Guia Prático para Desarmar o 'Não'</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Configuração Geral --- */
+        :root {
+            --cor-principal: #2c3e50;
+            --cor-secundaria: #34495e;
+            --cor-destaque: #e67e22; /* Laranja CTA */
+            --cor-sucesso: #27ae60;
+            --cor-fundo: #f9f9f9;
+            --cor-texto: #333;
+            --cor-branca: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Estilos de Texto --- */
+        h1, h2, h3 {
+            font-weight: 900;
+            color: var(--cor-principal);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        
+        h2.headline-secundaria {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            border-top: none;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--cor-secundaria);
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Botão CTA (Call to Action) --- */
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background-color: var(--cor-destaque);
+            color: var(--cor-branca);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.03);
+            background-color: #d35400; /* Laranja mais escuro */
+        }
+        
+        .cta-button-small {
+            font-size: 1.2rem;
+            padding: 15px;
+        }
+
+        /* --- Placeholder de Imagem --- */
+        .img-placeholder {
+            width: 100%;
+            background-color: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            padding: 60px 20px;
+            text-align: center;
+            font-weight: 700;
+            color: #7f8c8d;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* --- Secções --- */
+        section {
+            background-color: var(--cor-branca);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Secção 1 - Gancho */
+        #gancho {
+            background: linear-gradient(to bottom, var(--cor-principal), var(--cor-secundaria));
+            color: var(--cor-branca);
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        #gancho h1, #gancho h2.subtitulo-gancho {
+            color: var(--cor-branca);
+            border-top: none;
+        }
+        #gancho h2.subtitulo-gancho {
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-align: center;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 15px auto 30px auto;
+        }
+
+        /* Secção 2 - Dor */
+        #dor ul {
+            list-style-type: '❌';
+            padding-left: 25px;
+        }
+        #dor li {
+            padding-left: 10px;
+        }
+        
+        .frase-conexao {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--cor-fundo);
+            border-radius: 8px;
+            color: var(--cor-principal);
+        }
+
+        /* Secção 3 - Solução */
+        #solucao ul {
+            list-style-type: '✅';
+            padding-left: 25px;
+        }
+        #solucao li {
+            padding-left: 10px;
+            color: #006400; /* Verde escuro */
+        }
+
+        /* Secção 6 - Prova Social */
+        blockquote {
+            font-style: italic;
+            font-size: 1.2rem;
+            padding: 20px;
+            border-left: 5px solid var(--cor-destaque);
+            background-color: var(--cor-fundo);
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        blockquote footer {
+            font-style: normal;
+            font-weight: 700;
+            margin-top: 10px;
+            color: var(--cor-principal);
+        }
+
+        /* Secção 7 e 8 - Oferta e Preço */
+        #oferta {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branca);
+        }
+        #oferta h2, #oferta h3 {
+            color: var(--cor-branca);
+        }
+        .bonus-item {
+            padding: 15px;
+            border: 2px dashed #f1c40f;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255, 0.1);
+        }
+        .bonus-item strong {
+            color: #f1c40f; /* Amarelo */
+        }
+        
+        .preco-box {
+            text-align: center;
+            background-color: #fff8f0;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid var(--cor-destaque);
+        }
+        .preco-valor {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--cor-destaque);
+            margin: 10px 0;
+        }
+        .preco-condicoes {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .pagamento-icones {
+            max-width: 300px;
+            margin: 15px auto 0 auto;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .seguranca-texto {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Secção 9 - Garantia */
+        #garantia {
+            text-align: center;
+            border: 3px dashed var(--cor-sucesso);
+            background-color: #f0fff4;
+        }
+        #garantia h2 {
+            color: var(--cor-sucesso);
+            border-top: none;
+        }
+        .selo-garantia {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--cor-sucesso);
+        }
+
+        /* Secção 10 - FAQ */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        summary {
+            padding: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background-color: #fafafa;
+            border-radius: 8px;
+        }
+        summary:hover {
+            background-color: #f1f1f1;
+        }
+        .faq-resposta {
+            padding: 15px;
+            background-color: var(--cor-branca);
+            border-top: 1px solid #eee;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            background-color: #e9e9e9;
+        }
+        footer a {
+            color: #7f8c8d;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        /* --- Media Query para Mobile --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 25px 20px; }
+            .container { padding: 10px; }
+            body { background-color: var(--cor-branca); } /* Remove fundo cinza no mobile */
+            section {
+                margin-bottom: 0;
+                border-radius: 0;
+                box-shadow: none;
+                border-bottom: 1px solid #eee;
+            }
+            #gancho {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="gancho">
+        <div class="container">
+            <h1>Exausta de Gritos e do "Não"?</h1>
+            <h2 class="subtitulo-gancho">Descubra o método simples para desarmar a birra do seu filho (2-4 anos) em 5 minutos – <strong>sem precisar gritar ou perder a calma.</strong></h2>
+            
+            <div class="img-placeholder">[IMAGEM DA CAPA 3D DO EBOOK "SOS BIRRAS" AQUI]</div>
+            
+            <p style="text-align:center; font-weight: 700; font-size: 1.2rem;">O guia passo a passo para mães de primeira viagem que se sentem frustradas, culpadas e só querem restaurar a paz em casa (começando hoje).</p>
+            
+            <a href="#preco" class="cta-button">SIM! QUERO RECUPERAR A MINHA PAZ AGORA!</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="dor">
+            <h2>Se está a ler isto, provavelmente...</h2>
+            <ul>
+                <li>...sente que o seu filho de 2 anos, que era um "anjo", virou um "mini-tirano" da noite para o dia.</li>
+                <li>...tem pavor de ir ao supermercado ou restaurante, porque sabe que ele <strong>vai</strong> se atirar para o chão.</li>
+                <li>...ouve a palavra <strong>"NÃO!"</strong> 50 vezes por dia (e sente que cada "não" é uma batalha perdida).</li>
+                <li>...já tentou conversar, ignorar, colocar de castigo e até gritar, e nada parece funcionar de forma consistente.</li>
+                <li>...se sente julgada pelos olhares dos outros (e até da própria família) quando ele tem uma crise em público.</li>
+                <li>...chega à noite exausta, sentindo-se culpada e com medo de estar a "falhar como mãe".</li>
+            </ul>
+            <p class="frase-conexao">
+                Primeiro, respire fundo. A culpa não é sua.<br>
+                Você não está a falhar. O que está a passar tem nome – e existe um método para atravessar isso.
+            </p>
+        </section>
+
+        <section id="solucao">
+            <h2>Imagine por um segundo...</h2>
+            <ul>
+                <li>...saber <strong>exatamente</strong> o que fazer e o que dizer quando o primeiro sinal da crise aparecer.</li>
+                <li>...conseguir "desarmar" 80% das birras antes mesmo que elas expludam.</li>
+                <li>...ir ao shopping e, em vez de uma crise, ter o seu filho a dar-lhe a mão e a ouvi-la.</li>
+                <li>...trocar a hora do banho (que hoje é uma guerra) por um momento de conexão.</li>
+                <li>...chegar ao fim do dia sentindo-se confiante, calma e conectada com o seu filho, em vez de drenada por ele.</li>
+            </ul>
+            
+            <h2 class="headline-secundaria" style="text-align: center; margin-top: 40px;">Apresentando:</h2>
+            <div class="img-placeholder">[IMAGEM DA CAPA PLANA DO EBOOK AQUI]</div>
+            
+            <h3 style="text-align: center;">SOS Birras: O Guia Prático para Desarmar o "Não" e Restaurar a Paz em 5 Minutos</h3>
+            
+            <p>Este não é um livro de 300 páginas de teoria. É um <strong>guia de ação rápida</strong> – um manual de "primeiros socorros" – que você pode ler hoje à noite e aplicar amanhã de manhã.</p>
+            <p>Foi desenhado para mães exaustas (como você) que precisam de resultados rápidos, sem jargões complicados.</p>
+        </section>
+
+        <section id="beneficios">
+            <h2>O que vai descobrir (e aplicar):</h2>
+            <ul>
+                <li><strong>O Fim da Culpa:</strong> O Módulo 1 explica (de forma simples) por que o seu filho faz birra. <strong>Resultado:</strong> Você vai parar de achar que é manipulação e entender o cérebro dele.</li>
+                <li><strong>O Método "D.A.P." (Desarmar, Acolher, Propor):</strong> O script exato para os 5 minutos críticos da crise. O que dizer para o seu filho <i>realmente</i> a ouvir, sem que você precise levantar a voz.</li>
+                <li><strong>O Manual do Supermercado:</strong> O passo a passo para lidar com a birra em público. Como ser firme, acolher o seu filho e ignorar os julgamentos.</li>
+                <li><strong>A Prevenção de 80%:</strong> Como identificar os 3 "gatilhos secretos" (fome, sono, tédio) <i>antes</i> que eles virem uma explosão.</li>
+                <li><strong>O "Anti-Grito":</strong> Um capítulo bónus só para VOCÊ. Como a mãe pode manter a calma quando tudo ao seu redor é caos.</li>
+            </ul>
+        </section>
+
+        <section id="autoridade">
+            <h2>Quem sou eu?</h2>
+            <div class="img-placeholder">[SUA FOTO PROFISSIONAL AQUI]</div>
+            <p>Olá, eu sou [Seu Nome], [Sua credencial, ex: Pedagoga especialista em desenvolvimento infantil / ou "Mãe do [nome], que sobreviveu aos terrible twos"].</p>
+            <p>Eu não aprendi isto só nos livros. Eu vivi o caos das birras. [Sua breve história de 1 parágrafo sobre sua luta].</p>
+            <p>Eu vi centenas de mães [no meu consultório / nas minhas redes sociais] a fazer as mesmas perguntas, a cometer os mesmos erros e a sofrer com a mesma culpa.</p>
+            <p>Condensei tudo o que <strong>realmente funciona</strong> (sem teorias chatas) neste guia prático. Criei o "SOS Birras" porque é o manual que eu gostaria desesperadamente de ter tido quando o meu filho tinha 2 anos.</p>
+        </section>
+
+        <section id="prova">
+            <h2>O que dizem as mães que já aplicaram:</h2>
+            
+            <blockquote>
+                <p>"Eu estava no meu limite. Li o 'SOS Birras' numa noite. No dia seguinte, usei a técnica D.A.P. na hora do banho. Pela primeira vez em semanas, não teve gritaria. Estou a chorar de alívio."</p>
+                <footer>– Juliana M. (Mãe do Léo, 2 anos e meio)</footer>
+            </blockquote>
+            
+            <blockquote>
+                <p>"A parte sobre 'lidar com a birra em público' mudou o jogo. Fui ao supermercado pela primeira vez em meses sem sentir aquele frio na barriga. Ele tentou começar, eu usei o script e... funcionou."</p>
+                <footer>– Patrícia G. (Mãe da Sofia, 3 anos)</footer>
+            </blockquote>
+
+            <blockquote>
+                <p>"Eu achava que o problema era eu, que era 'mole' demais. O guia me fez entender que não é sobre ser dura, é sobre ser inteligente. Obrigada!"</p>
+                <footer>– Carla V. (Mãe do Miguel, 2 anos)</footer>
+            </blockquote>
+        </section>
+
+        <section id="oferta">
+            <h2>Receba o Guia Completo + Bónus Exclusivos</h2>
+            <p>Ao garantir o seu acesso hoje, recebe não só o ebook, mas também estas ferramentas essenciais:</p>
+            
+            <div class="bonus-item">
+                <h3>O Ebook "SOS Birras"</h3>
+                <p>(Guia Rápido e Prático para ler numa hora) (Valor: 27,00€)</p>
+            </div>
+            
+            <div class="bonus-item">
+                <h3><strong>BÓNUS 1:</strong> O Checklist de Frigorífico "Anti-Crise"</h3>
+                <p>(Um resumo de 1 página do método D.A.P. para olhar rápido quando a crise começar.) (Valor: 17,00€)</p>
+            </div>
+            
+            <div class="bonus-item">
+                <h3><strong>BÓNUS 2:</strong> O Guia para Papás e Avós</h3>
+                <p>(Como alinhar todos na mesma estratégia, para que não desfaçam o seu trabalho.) (Valor: 10,00€)</p>
+            </div>
+
+            <p style="font-size: 1.2rem; text-align:center; margin-top: 30px;">
+                Valor Total de tudo: <s>54,00€</s><br>
+                <strong>Preço Especial de Lançamento por apenas:</strong>
+            </p>
+        </section>
+
+        <section id="preco">
+            <div class="preco-box">
+                <p class="preco-condicoes">Pagamento único de:</p>
+                <div class="preco-valor">19,00€</div>
+                <p class="preco-condicoes">(Menos do que um menu de almoço para parar meses de stress)</p>
+                
+                <a href="#link-do-checkout" class="cta-button">SIM! QUERO RESTAURAR A PAZ POR 19€!</a>
+                
+                <div class="pagamento-icones">
+                    Pagamento 100% Seguro com:<br>
+                    [LOGO MB WAY] [LOGO MULTIBANCO] [LOGO VISA/MC]
+                </div>
+            </div>
+            <p class="seguranca-texto">🔐 Compra 100% Segura | Acesso Imediato ao seu email.</p>
+        </section>
+
+        <section id="garantia">
+            <div class="selo-garantia">7 DIAS</div>
+            <h2>Garantia de Paz (ou o seu dinheiro de volta)</h2>
+            <p>Eu confio tanto neste método que o risco é 100% meu. Adquira o "SOS Birras", leia o guia, aplique o método D.A.P. na próxima crise do seu filho.</p>
+            <p>Se em <strong>7 dias</strong> você não sentir a sua casa mais calma, ou se simplesmente achar que não é para si, basta enviar um único email. Eu devolvo 100% do seu dinheiro. Sem perguntas, sem ressentimentos.</p>
+        </section>
+
+        <section id="fechamento">
+            <h2>Pense nisto: O que vai custar mais caro?</h2>
+            <p>Investir 19€ hoje e ter o mapa para lidar com as birras... ou continuar no ciclo de stress, gritos e culpa por mais 6 meses?</p>
+            <p>A fase dos "terrible twos" passa. A questão é <i>como</i> você e o seu filho vão passar por ela: em guerra ou a construir uma conexão ainda mais forte.</p>
+            <p>A escolha é sua.</p>
+            
+            <a href="#link-do-checkout" class="cta-button cta-button-small">QUERO O MEU GUIA 'SOS BIRRAS' + BÓNUS AGORA!</a>
+        </section>
+        
+        <section id="faq">
+            <h2>Perguntas Frequentes (Para Mães Ocupadas)</h2>
+            
+            <details>
+                <summary>+ Eu não tenho tempo de ler um livro agora!</summary>
+                <div class="faq-resposta">
+                    <p>Perfeito. Este <i>não</i> é um livro, é um guia de ação rápida. Você lê em menos de 1 hora. O bónus do checklist é para ser visto em 30 segundos. Foi feito para mães sem tempo.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>+ Como posso pagar?</summary>
+                <div class="faq-resposta">
+                    <p>Pode pagar de forma fácil e segura com <strong>MB Way</strong>, <strong>Multibanco (Referência)</strong> ou <strong>Cartão de Crédito</strong>. O seu acesso é enviado assim que o pagamento é confirmado.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>+ O meu filho é muito "difícil", acho que não funciona para ele.</summary>
+                <div class="faq-resposta">
+                    <p>O método é baseado em como o cérebro da criança de 2-4 anos funciona. Não é mágica, é ciência (simplificada). Ele vai ajudá-la a entender <i>o porquê</i> por trás da birra dele, tornando-a gerenciável.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>+ Como vou receber o ebook?</summary>
+                <div class="faq-resposta">
+                    <p>Imediatamente. Assim que o pagamento for aprovado (é instantâneo com MB Way ou Cartão), recebe um email com o link de acesso para download. Pode ler no <strong>telemóvel</strong>, tablet ou computador.</p>
+                </div>
+            </details>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="/termos-e-condicoes.html">Termos e Condições</a> | 
+            <a href="/politica-de-privacidade.html">Política de Privacidade</a> |
+            <a href="mailto:[seu.email@contacto.pt]">Contacto</a>
+        </p>
+        <p>
+            <strong>[Seu Nome ou Nome da Empresa]</strong><br>
+            NIF: [Seu NIF] | Morada: [Sua Morada Completa, Portugal]
+        </p>
+        <p>
+            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
+        </p>
+        <p>
+            © 2024 [Seu Nome]. Todos os direitos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>
