@@ -11,7 +11,8 @@
             --primary-color: #6B8E23; /* Verde Oliva */
             --primary-dark: #4a6319;
             --secondary-color: #F0F4E8;
-            --accent-color: #D4AF37; /* Dourado suave para luxo */
+            --accent-color: #D4AF37; /* Dourado */
+            --alert-color: #e74c3c; /* Vermelho para urgência */
             --text-color: #444;
             --bg-light: #FAFAFA;
             --white: #FFFFFF;
@@ -24,13 +25,14 @@
             color: var(--text-color); 
             line-height: 1.6; 
             font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden; /* Evita scroll lateral nas animações */
         }
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #2E3B1F; }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- Botão CTA Pulsante --- */
+        /* --- Botão CTA --- */
         .btn-cta {
             background: linear-gradient(135deg, #6B8E23 0%, #4a6319 100%);
             color: white;
@@ -47,8 +49,15 @@
             text-align: center;
             width: 100%;
             max-width: 450px;
+            animation: pulse 2s infinite;
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
         .btn-cta:hover { 
             transform: translateY(-3px); 
             box-shadow: 0 15px 30px rgba(107, 142, 35, 0.5);
@@ -62,7 +71,7 @@
             background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1576426863848-c2185fc6e3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 80px 0 100px;
+            padding: 60px 0 80px;
             text-align: center;
         }
         
@@ -78,13 +87,25 @@
             display: inline-block;
         }
 
-        .hero-headline { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero-sub { font-size: 1.3rem; color: #555; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;}
+        .hero-headline { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-sub { font-size: 1.2rem; color: #555; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;}
 
         /* --- Secções --- */
         .section-padding { padding: 60px 0; }
         
         .story-section { background-color: var(--white); }
+        
+        /* Nova Imagem de Meio (ima.jpg) */
+        .story-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 40px auto;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
         .highlight-box { 
             background-color: #F9F6F0; 
             border-left: 5px solid var(--primary-color); 
@@ -109,29 +130,35 @@
         .benefit-card:hover { transform: translateY(-5px); }
         .benefit-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
 
-        /* --- Testimonials (Prova Social) --- */
-        .testimonials-section { background-color: var(--white); text-align: center; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .testimonial-card { background: #f8f8f8; padding: 25px; border-radius: 10px; position: relative; }
-        .testimonial-text { font-style: italic; margin-bottom: 15px; }
-        .stars { color: #FFD700; letter-spacing: 2px; }
-        
         /* --- Bonus Section --- */
         .bonus-section { background-color: #2E3B1F; color: white; text-align: center; }
         .bonus-section h2 { color: white; }
         .bonus-box { border: 2px dashed rgba(255,255,255,0.3); padding: 30px; margin-top: 30px; border-radius: 10px; display: inline-block; max-width: 600px; }
 
-        /* --- Offer & Guarantee --- */
+        /* --- Testimonials --- */
+        .testimonials-section { background-color: var(--white); text-align: center; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .testimonial-card { background: #f8f8f8; padding: 25px; border-radius: 10px; }
+        .stars { color: #FFD700; letter-spacing: 2px; }
+        
+        /* --- Offer, Timer & Price --- */
         .offer-section { padding: 80px 0; background-color: var(--white); text-align: center; }
-        .price-box { margin: 40px 0; background: #fff; display: inline-block; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.08); width: 100%; max-width: 500px; }
+        .price-box { margin: 40px auto; background: #fff; display: block; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.1); width: 100%; max-width: 550px; border: 2px solid #eee; }
         .price-old { text-decoration: line-through; color: #aaa; font-size: 1.2rem; }
         .price-new { color: var(--primary-dark); font-size: 3.5rem; font-weight: 800; line-height: 1; margin: 10px 0; }
         
-        .guarantee-badge {
-            max-width: 120px;
-            margin: 30px auto;
-            display: block;
+        /* Timer Style */
+        .timer-container {
+            background-color: #ffeceb;
+            color: var(--alert-color);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border: 1px solid #fadbd8;
         }
+        .timer-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+        .timer-count { font-size: 2rem; font-family: monospace; font-weight: 800; }
 
         .product-mockup {
             max-width: 350px;
@@ -142,12 +169,36 @@
             transform: rotate(-2deg);
         }
 
-        footer { background-color: #1a2411; color: #aaa; text-align: center; padding: 40px 0; margin-top: 0; font-size: 0.9rem; }
+        /* --- Notificações de Venda (Pop-up) --- */
+        .sales-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transform: translateY(150%); /* Começa escondido */
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 320px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .sales-notification.show { transform: translateY(0); }
+        .sales-notification img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .sales-info p { font-size: 0.85rem; margin: 0; line-height: 1.3; }
+        .sales-info strong { display: block; color: var(--text-color); }
+        .sales-time { font-size: 0.75rem; color: #888; }
+
+        footer { background-color: #1a2411; color: #aaa; text-align: center; padding: 40px 0; font-size: 0.9rem; }
         
-        /* Mobile Adjustments */
         @media (max-width: 768px) { 
             .hero-headline { font-size: 2rem; } 
             .btn-cta { padding: 15px 20px; width: 100%; } 
+            .sales-notification { bottom: 10px; left: 10px; right: 10px; max-width: none; }
         }
     </style>
 </head>
@@ -172,6 +223,8 @@
             <h2 style="text-align: center; margin-bottom: 30px;">¿Alguna vez te has mirado al espejo y has sentido que tu piel ya no eres tú?</h2>
             <p>Sabemos cómo se siente. Gastas dinero en cremas "milagrosas" de marca que prometen el cielo, pero tu piel sigue opaca, cansada, o con esas manchitas que insisten en quedarse. Y lo peor: tu piel se llena de parabenos y conservantes que la envejecen a largo plazo.</p>
             
+            <img src="ima.jpg" alt="Ritual de Beleza Natural" class="story-image">
+
             <div class="highlight-box">
                 "La verdadera belleza no necesita ser complicada ni cara. La naturaleza ya nos dio todo lo que necesitamos. Solo necesitas las proporciones exactas."
             </div>
@@ -218,9 +271,9 @@
                 <p>Al comprar la guía, recibirás acceso inmediato a nuestro <strong>Grupo Exclusivo</strong>.</p>
                 <br>
                 <ul style="text-align: left; margin-bottom: 15px; list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 8px;">👯‍♀️ <strong>Conecta:</strong> Comparte tu progreso y haz nuevas amigas con tus mismos intereses.</li>
+                    <li style="margin-bottom: 8px;">👯‍♀️ <strong>Conecta:</strong> Comparte tu progreso y haz nuevas amigas.</li>
                     <li style="margin-bottom: 8px;">💬 <strong>Soporte:</strong> ¿Tienes una duda sobre una receta? ¡Pregunta en el grupo!</li>
-                    <li style="margin-bottom: 8px;">📸 <strong>Motivación:</strong> Comparte tus fotos de "Antes y Después" y celebra tus logros.</li>
+                    <li style="margin-bottom: 8px;">📸 <strong>Motivación:</strong> Comparte tus fotos de "Antes y Después".</li>
                 </ul>
                 <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">(Valor Incalculable - Hoy GRATIS)</p>
             </div>
@@ -257,9 +310,15 @@
             <h2 style="color: #2E3B1F; font-size: 2rem; max-width: 600px; margin: 0 auto;">Todo lo que necesitas para transformar tu piel hoy mismo</h2>
             
             <div class="price-box">
+                <div class="timer-container">
+                    <span class="timer-text">🔥 La oferta termina en:</span>
+                    <div class="timer-count" id="countdown">15:00</div>
+                </div>
+
                 <p class="price-old">Valor Normal: $29,90</p>
                 <p class="price-new">HOY: $9,90</p>
                 <p style="color: #e74c3c; font-weight: bold; background: #ffeceb; padding: 5px 10px; border-radius: 5px; display: inline-block;">¡Ahorras 20 dólares!</p>
+                
                 <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
                 
                 <ul style="text-align: left; list-style: none; margin-bottom: 20px; padding: 0 10px;">
@@ -272,9 +331,6 @@
                     <li style="margin-bottom: 10px; display: flex; align-items: center;">
                         <span style="color: green; margin-right: 10px;">✅</span> Lista de Compras Económica
                     </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <span style="color: green; margin-right: 10px;">✅</span> Acceso Inmediato al Email
-                    </li>
                 </ul>
 
                 <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
@@ -285,15 +341,7 @@
             <div style="margin-top: 20px;">
                 <img src="https://cdn-icons-png.flaticon.com/512/2550/2550334.png" alt="Garantia de 7 Dias" style="width: 80px; display: block; margin: 0 auto 10px;">
                 <h3 style="font-size: 1.2rem;">Garantía de 7 Días</h3>
-                <p style="max-width: 500px; margin: 0 auto; font-size: 0.9rem; color: #666;">Si no amas las recetas o no sientes tu piel más suave, te devolvemos el 100% de tu dinero. Sin preguntas.</p>
-            </div>
-            
-            <br><br>
-            <div style="opacity: 0.7;">
-                <img src="https://img.icons8.com/color/48/000000/visa.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
-                <img src="https://img.icons8.com/color/48/000000/mastercard.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
-                <img src="https://img.icons8.com/color/48/000000/paypal.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
-                <p style="font-size: 0.8rem; margin-top: 10px;">Pagos procesados por Hotmart. Sus datos están encriptados.</p>
+                <p style="max-width: 500px; margin: 0 auto; font-size: 0.9rem; color: #666;">Si no amas las recetas o no sientes tu piel más suave, te devolvemos el 100% de tu dinero.</p>
             </div>
         </div>
     </section>
@@ -301,9 +349,79 @@
     <footer>
         <div class="container">
             <p>MR Ritual © 2024 - Todos los derechos reservados.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Este sitio no es parte del sitio web de Facebook o Facebook Inc. Además, este sitio no está respaldado por Facebook de ninguna manera.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Este sitio no es parte del sitio web de Facebook o Facebook Inc.</p>
         </div>
     </footer>
+
+    <div class="sales-notification" id="notification-popup">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Compradora" id="buyer-img">
+        <div class="sales-info">
+            <p><strong id="buyer-name">Ana M.</strong></p>
+            <p>Acaba de comprar la <strong>Guía MR Ritual</strong></p>
+            <span class="sales-time">hace 2 minutos</span>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. Temporizador de Escassez ---
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reinicia se chegar a zero (loop)
+                }
+            }, 1000);
+        }
+
+        // --- 2. Notificações de Venda Falsas (Social Proof) ---
+        const buyers = [
+            { name: "Lucía R. de México", img: "https://randomuser.me/api/portraits/women/12.jpg" },
+            { name: "Carmen S. de España", img: "https://randomuser.me/api/portraits/women/65.jpg" },
+            { name: "Valentina T. de Colombia", img: "https://randomuser.me/api/portraits/women/33.jpg" },
+            { name: "Isabella M. de Argentina", img: "https://randomuser.me/api/portraits/women/28.jpg" },
+            { name: "Sofía P. de Chile", img: "https://randomuser.me/api/portraits/women/90.jpg" }
+        ];
+
+        function showNotification() {
+            const popup = document.getElementById('notification-popup');
+            const nameEl = document.getElementById('buyer-name');
+            const imgEl = document.getElementById('buyer-img');
+            
+            // Escolhe um comprador aleatório
+            const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+            
+            nameEl.textContent = buyer.name;
+            imgEl.src = buyer.img;
+            
+            // Mostra o popup
+            popup.classList.add('show');
+            
+            // Esconde depois de 4 segundos
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 4000);
+        }
+
+        // Iniciar scripts ao carregar a página
+        window.onload = function () {
+            // Inicia Timer (15 minutos = 900 segundos)
+            var fifteenMinutes = 60 * 15,
+                display = document.querySelector('#countdown');
+            startTimer(fifteenMinutes, display);
+
+            // Inicia Notificações (Primeira aparece em 5s, depois a cada 20s)
+            setTimeout(showNotification, 5000);
+            setInterval(showNotification, 20000); 
+        };
+    </script>
 
 </body>
 </html>
