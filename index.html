@@ -25,7 +25,7 @@
             color: var(--text-color); 
             line-height: 1.6; 
             font-family: 'Open Sans', sans-serif;
-            overflow-x: hidden; /* Evita scroll lateral nas animações */
+            overflow-x: hidden;
         }
 
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #2E3B1F; }
@@ -358,12 +358,12 @@
         <div class="sales-info">
             <p><strong id="buyer-name">Ana M.</strong></p>
             <p>Acaba de comprar la <strong>Guía MR Ritual</strong></p>
-            <span class="sales-time">hace 2 minutos</span>
+            <span class="sales-time" id="buyer-time">hace un instante</span>
         </div>
     </div>
 
     <script>
-        // --- 1. Temporizador de Escassez ---
+        // --- 1. Temporizador de Escassez (Loop) ---
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
@@ -376,50 +376,62 @@
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
-                    timer = duration; // Reinicia se chegar a zero (loop)
+                    timer = duration; // Reinicia se chegar a zero
                 }
             }, 1000);
         }
 
-        // --- 2. Notificações de Venda Falsas (Social Proof) ---
+        // --- 2. Notificações de Venda ALTA FREQUÊNCIA ---
         const buyers = [
             { name: "Lucía R. de México", img: "https://randomuser.me/api/portraits/women/12.jpg" },
             { name: "Carmen S. de España", img: "https://randomuser.me/api/portraits/women/65.jpg" },
             { name: "Valentina T. de Colombia", img: "https://randomuser.me/api/portraits/women/33.jpg" },
             { name: "Isabella M. de Argentina", img: "https://randomuser.me/api/portraits/women/28.jpg" },
-            { name: "Sofía P. de Chile", img: "https://randomuser.me/api/portraits/women/90.jpg" }
+            { name: "Sofía P. de Chile", img: "https://randomuser.me/api/portraits/women/90.jpg" },
+            { name: "Mariana L. de Perú", img: "https://randomuser.me/api/portraits/women/44.jpg" },
+            { name: "Gabriela F. de México", img: "https://randomuser.me/api/portraits/women/50.jpg" },
+            { name: "Elena D. de EEUU", img: "https://randomuser.me/api/portraits/women/21.jpg" },
+            { name: "Camila R. de Ecuador", img: "https://randomuser.me/api/portraits/women/36.jpg" },
+            { name: "Laura B. de España", img: "https://randomuser.me/api/portraits/women/75.jpg" }
         ];
 
-        function showNotification() {
+        function cycleNotifications() {
             const popup = document.getElementById('notification-popup');
             const nameEl = document.getElementById('buyer-name');
             const imgEl = document.getElementById('buyer-img');
+            const timeEl = document.getElementById('buyer-time');
             
-            // Escolhe um comprador aleatório
+            // Seleciona compradora aleatória
             const buyer = buyers[Math.floor(Math.random() * buyers.length)];
             
+            // Atualiza dados
             nameEl.textContent = buyer.name;
             imgEl.src = buyer.img;
+            timeEl.textContent = "hace " + (Math.floor(Math.random() * 5) + 1) + " minutos"; // Tempo aleatório "há X min"
             
             // Mostra o popup
             popup.classList.add('show');
             
-            // Esconde depois de 4 segundos
+            // Esconde depois de 4 segundos visível
             setTimeout(() => {
                 popup.classList.remove('show');
-            }, 4000);
+                
+                // AGENDA A PRÓXIMA: Intervalo MUITO curto (entre 3 a 8 segundos)
+                const randomNextTime = Math.floor(Math.random() * 5000) + 3000; 
+                setTimeout(cycleNotifications, randomNextTime);
+
+            }, 4000); 
         }
 
-        // Iniciar scripts ao carregar a página
+        // Iniciar scripts
         window.onload = function () {
-            // Inicia Timer (15 minutos = 900 segundos)
+            // Inicia Timer (15 minutos)
             var fifteenMinutes = 60 * 15,
                 display = document.querySelector('#countdown');
             startTimer(fifteenMinutes, display);
 
-            // Inicia Notificações (Primeira aparece em 5s, depois a cada 20s)
-            setTimeout(showNotification, 5000);
-            setInterval(showNotification, 20000); 
+            // Inicia Notificações (Começa rápido em 2s)
+            setTimeout(cycleNotifications, 2000);
         };
     </script>
 
