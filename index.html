@@ -1,542 +1,335 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOS Birras - O Guia Prático para Desarmar o 'Não'</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-
+    <title>Guía MR Ritual - Mascarillas Caseras Naturales</title>
     <style>
-        /* --- Configuração Geral --- */
+        /* --- Estilos Gerais e Reset --- */
         :root {
-            --cor-principal: #2c3e50;
-            --cor-secundaria: #34495e;
-            --cor-destaque: #e67e22; /* Laranja CTA */
-            --cor-sucesso: #27ae60;
-            --cor-fundo: #f9f9f9;
-            --cor-texto: #333;
-            --cor-branca: #ffffff;
+            --primary-color: #6B8E23; /* Verde Oliva Natural */
+            --secondary-color: #F5F5DC; /* Bege Creme */
+            --accent-color: #D4AF37; /* Dourado Suave */
+            --text-color: #333;
+            --bg-light: #FAFAFA;
+            --white: #FFFFFF;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        
         body {
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--cor-texto);
-            background-color: var(--cor-fundo);
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        /* --- Estilos de Texto --- */
-        h1, h2, h3 {
-            font-weight: 900;
-            color: var(--cor-principal);
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-        }
-        
-        h2.headline-secundaria {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--cor-secundaria);
-            border-top: none;
-            text-align: left;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--cor-secundaria);
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        /* --- Botão CTA (Call to Action) --- */
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 20px;
-            background-color: var(--cor-destaque);
-            color: var(--cor-branca);
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            margin: 20px 0;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.03);
-            background-color: #d35400; /* Laranja mais escuro */
-        }
-        
-        .cta-button-small {
+        /* --- Botões de Alta Conversão --- */
+        .btn-cta {
+            background: linear-gradient(135deg, #6B8E23 0%, #556B2F 100%);
+            color: white;
+            padding: 18px 40px;
             font-size: 1.2rem;
-            padding: 15px;
-        }
-
-        /* --- Placeholder de Imagem --- */
-        .img-placeholder {
-            width: 100%;
-            background-color: #ecf0f1;
-            border: 2px dashed #bdc3c7;
-            padding: 60px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(107, 142, 35, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
             text-align: center;
-            font-weight: 700;
-            color: #7f8c8d;
-            border-radius: 8px;
-            margin: 20px 0;
         }
 
-        /* --- Secções --- */
-        section {
-            background-color: var(--cor-branca);
-            padding: 40px;
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 142, 35, 0.6);
+        }
+
+        .btn-cta span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-top: 5px;
+            text-transform: none;
+        }
+
+        /* --- Hero Section (Topo) --- */
+        header {
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1576426863848-c2185fc6e3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: 2.8rem;
+            color: #2E3B1F;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subheadline {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- Problema e História (Conexão Emocional) --- */
+        .story-section {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: justify;
+        }
+        
+        .story-text {
+            max-width: 800px;
+        }
+
+        .highlight-box {
+            background-color: #F9F6F0;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #556B2F;
+        }
+
+        /* --- Benefícios (O Que Você Vai Receber) --- */
+        .benefits-section {
+            padding: 80px 0;
+            background-color: #F0F4E8; /* Verde muito claro */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2E3B1F;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* --- Mockup e Oferta --- */
+        .offer-section {
+            padding: 80px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .product-mockup {
+            max-width: 400px;
+            width: 100%;
             margin-bottom: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        /* Secção 1 - Gancho */
-        #gancho {
-            background: linear-gradient(to bottom, var(--cor-principal), var(--cor-secundaria));
-            color: var(--cor-branca);
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        #gancho h1, #gancho h2.subtitulo-gancho {
-            color: var(--cor-branca);
-            border-top: none;
-        }
-        #gancho h2.subtitulo-gancho {
-            font-size: 1.4rem;
-            font-weight: 400;
-            text-align: center;
-            line-height: 1.5;
-            max-width: 600px;
-            margin: 15px auto 30px auto;
+        .price-box {
+            margin: 40px 0;
         }
 
-        /* Secção 2 - Dor */
-        #dor ul {
-            list-style-type: '❌';
-            padding-left: 25px;
-        }
-        #dor li {
-            padding-left: 10px;
-        }
-        
-        .frase-conexao {
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
             font-size: 1.2rem;
-            font-weight: 700;
+        }
+
+        .price-new {
+            color: #2E3B1F;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* --- Garantia --- */
+        .guarantee-section {
+            background-color: #F9F9F9;
+            padding: 40px 0;
             text-align: center;
-            padding: 20px;
-            background-color: var(--cor-fundo);
-            border-radius: 8px;
-            color: var(--cor-principal);
-        }
-
-        /* Secção 3 - Solução */
-        #solucao ul {
-            list-style-type: '✅';
-            padding-left: 25px;
-        }
-        #solucao li {
-            padding-left: 10px;
-            color: #006400; /* Verde escuro */
-        }
-
-        /* Secção 6 - Prova Social */
-        blockquote {
-            font-style: italic;
-            font-size: 1.2rem;
-            padding: 20px;
-            border-left: 5px solid var(--cor-destaque);
-            background-color: var(--cor-fundo);
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        blockquote footer {
-            font-style: normal;
-            font-weight: 700;
-            margin-top: 10px;
-            color: var(--cor-principal);
-        }
-
-        /* Secção 7 e 8 - Oferta e Preço */
-        #oferta {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-branca);
-        }
-        #oferta h2, #oferta h3 {
-            color: var(--cor-branca);
-        }
-        .bonus-item {
-            padding: 15px;
-            border: 2px dashed #f1c40f;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background: rgba(255,255,255, 0.1);
-        }
-        .bonus-item strong {
-            color: #f1c40f; /* Amarelo */
-        }
-        
-        .preco-box {
-            text-align: center;
-            background-color: #fff8f0;
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid var(--cor-destaque);
-        }
-        .preco-valor {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--cor-destaque);
-            margin: 10px 0;
-        }
-        .preco-condicoes {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .pagamento-icones {
-            max-width: 300px;
-            margin: 15px auto 0 auto;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-        .seguranca-texto {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        /* Secção 9 - Garantia */
-        #garantia {
-            text-align: center;
-            border: 3px dashed var(--cor-sucesso);
-            background-color: #f0fff4;
-        }
-        #garantia h2 {
-            color: var(--cor-sucesso);
-            border-top: none;
-        }
-        .selo-garantia {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--cor-sucesso);
-        }
-
-        /* Secção 10 - FAQ */
-        details {
-            margin-bottom: 15px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-        }
-        summary {
-            padding: 15px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            background-color: #fafafa;
-            border-radius: 8px;
-        }
-        summary:hover {
-            background-color: #f1f1f1;
-        }
-        .faq-resposta {
-            padding: 15px;
-            background-color: var(--cor-branca);
             border-top: 1px solid #eee;
-            border-radius: 0 0 8px 8px;
         }
 
-        /* --- Rodapé --- */
+        .guarantee-badge {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer --- */
         footer {
+            background-color: #2E3B1F;
+            color: white;
             text-align: center;
-            padding: 30px;
+            padding: 40px 0;
             font-size: 0.9rem;
-            color: #7f8c8d;
-            background-color: #e9e9e9;
-        }
-        footer a {
-            color: #7f8c8d;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        footer p {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 10px;
         }
 
-        /* --- Media Query para Mobile --- */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            section { padding: 25px 20px; }
-            .container { padding: 10px; }
-            body { background-color: var(--cor-branca); } /* Remove fundo cinza no mobile */
-            section {
-                margin-bottom: 0;
-                border-radius: 0;
-                box-shadow: none;
-                border-bottom: 1px solid #eee;
-            }
-            #gancho {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-        }
+        footer a { color: #D4AF37; text-decoration: none; }
 
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            .hero-headline { font-size: 2rem; }
+            .btn-cta { width: 100%; padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <header id="gancho">
+    <header>
         <div class="container">
-            <h1>Exausta de Gritos e do "Não"?</h1>
-            <h2 class="subtitulo-gancho">Descubra o método simples para desarmar a birra do seu filho (2-4 anos) em 5 minutos – <strong>sem precisar gritar ou perder a calma.</strong></h2>
+            <p style="color: var(--primary-color); font-weight: bold; letter-spacing: 2px; margin-bottom: 10px;">GUÍA MR RITUAL</p>
+            <h1 class="hero-headline">Recupera el Brillo Natural de tu Piel sin Gastar una Fortuna en Químicos</h1>
+            <p class="hero-subheadline">Descubre el secreto milenario de los ingredientes naturales. Transforma tu cocina en un Spa de Lujo y tu rostro en una obra de arte en solo 15 minutos.</p>
             
-            <div class="img-placeholder">[IMAGEM DA CAPA 3D DO EBOOK "SOS BIRRAS" AQUI]</div>
-            
-            <p style="text-align:center; font-weight: 700; font-size: 1.2rem;">O guia passo a passo para mães de primeira viagem que se sentem frustradas, culpadas e só querem restaurar a paz em casa (começando hoje).</p>
-            
-            <a href="#preco" class="cta-button">SIM! QUERO RECUPERAR A MINHA PAZ AGORA!</a>
+            <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
+                QUIERO MI PIEL RADIANTE AHORA
+                <span>(Oferta Especial por Tiempo Limitado)</span>
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">🔒 Compra 100% Segura y Acceso Inmediato</p>
         </div>
     </header>
 
-    <main class="container">
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #2E3B1F;">¿Alguna vez te has mirado al espejo y has sentido que tu piel ya no eres tú?</h2>
+                    <p>Sabemos cómo se siente. Gastas cientos de euros en cremas "milagrosas" de farmacia. Te prometen el cielo, pero al final del mes, tu piel sigue opaca, cansada, o con esas manchitas que insisten en quedarse. Y lo peor: tu piel se llena de químicos que no sabes ni pronunciar.</p>
+                    <br>
+                    <p><strong>No es culpa tuya.</strong> La industria de la belleza quiere que dependas de ellos. Pero la verdad es mucho más simple (y poderosa).</p>
+                    
+                    <div class="highlight-box">
+                        "La verdadera belleza no necesita ser complicada ni cara. La naturaleza ya nos dio todo lo que necesitamos. Solo necesitas saber cómo usarlo."
+                    </div>
 
-        <section id="dor">
-            <h2>Se está a ler isto, provavelmente...</h2>
-            <ul>
-                <li>...sente que o seu filho de 2 anos, que era um "anjo", virou um "mini-tirano" da noite para o dia.</li>
-                <li>...tem pavor de ir ao supermercado ou restaurante, porque sabe que ele <strong>vai</strong> se atirar para o chão.</li>
-                <li>...ouve a palavra <strong>"NÃO!"</strong> 50 vezes por dia (e sente que cada "não" é uma batalha perdida).</li>
-                <li>...já tentou conversar, ignorar, colocar de castigo e até gritar, e nada parece funcionar de forma consistente.</li>
-                <li>...se sente julgada pelos olhares dos outros (e até da própria família) quando ele tem uma crise em público.</li>
-                <li>...chega à noite exausta, sentindo-se culpada e com medo de estar a "falhar como mãe".</li>
-            </ul>
-            <p class="frase-conexao">
-                Primeiro, respire fundo. A culpa não é sua.<br>
-                Você não está a falhar. O que está a passar tem nome – e existe um método para atravessar isso.
-            </p>
-        </section>
-
-        <section id="solucao">
-            <h2>Imagine por um segundo...</h2>
-            <ul>
-                <li>...saber <strong>exatamente</strong> o que fazer e o que dizer quando o primeiro sinal da crise aparecer.</li>
-                <li>...conseguir "desarmar" 80% das birras antes mesmo que elas expludam.</li>
-                <li>...ir ao shopping e, em vez de uma crise, ter o seu filho a dar-lhe a mão e a ouvi-la.</li>
-                <li>...trocar a hora do banho (que hoje é uma guerra) por um momento de conexão.</li>
-                <li>...chegar ao fim do dia sentindo-se confiante, calma e conectada com o seu filho, em vez de drenada por ele.</li>
-            </ul>
-            
-            <h2 class="headline-secundaria" style="text-align: center; margin-top: 40px;">Apresentando:</h2>
-            <div class="img-placeholder">[IMAGEM DA CAPA PLANA DO EBOOK AQUI]</div>
-            
-            <h3 style="text-align: center;">SOS Birras: O Guia Prático para Desarmar o "Não" e Restaurar a Paz em 5 Minutos</h3>
-            
-            <p>Este não é um livro de 300 páginas de teoria. É um <strong>guia de ação rápida</strong> – um manual de "primeiros socorros" – que você pode ler hoje à noite e aplicar amanhã de manhã.</p>
-            <p>Foi desenhado para mães exaustas (como você) que precisam de resultados rápidos, sem jargões complicados.</p>
-        </section>
-
-        <section id="beneficios">
-            <h2>O que vai descobrir (e aplicar):</h2>
-            <ul>
-                <li><strong>O Fim da Culpa:</strong> O Módulo 1 explica (de forma simples) por que o seu filho faz birra. <strong>Resultado:</strong> Você vai parar de achar que é manipulação e entender o cérebro dele.</li>
-                <li><strong>O Método "D.A.P." (Desarmar, Acolher, Propor):</strong> O script exato para os 5 minutos críticos da crise. O que dizer para o seu filho <i>realmente</i> a ouvir, sem que você precise levantar a voz.</li>
-                <li><strong>O Manual do Supermercado:</strong> O passo a passo para lidar com a birra em público. Como ser firme, acolher o seu filho e ignorar os julgamentos.</li>
-                <li><strong>A Prevenção de 80%:</strong> Como identificar os 3 "gatilhos secretos" (fome, sono, tédio) <i>antes</i> que eles virem uma explosão.</li>
-                <li><strong>O "Anti-Grito":</strong> Um capítulo bónus só para VOCÊ. Como a mãe pode manter a calma quando tudo ao seu redor é caos.</li>
-            </ul>
-        </section>
-
-        <section id="autoridade">
-            <h2>Quem sou eu?</h2>
-            <div class="img-placeholder">[SUA FOTO PROFISSIONAL AQUI]</div>
-            <p>Olá, eu sou [Seu Nome], [Sua credencial, ex: Pedagoga especialista em desenvolvimento infantil / ou "Mãe do [nome], que sobreviveu aos terrible twos"].</p>
-            <p>Eu não aprendi isto só nos livros. Eu vivi o caos das birras. [Sua breve história de 1 parágrafo sobre sua luta].</p>
-            <p>Eu vi centenas de mães [no meu consultório / nas minhas redes sociais] a fazer as mesmas perguntas, a cometer os mesmos erros e a sofrer com a mesma culpa.</p>
-            <p>Condensei tudo o que <strong>realmente funciona</strong> (sem teorias chatas) neste guia prático. Criei o "SOS Birras" porque é o manual que eu gostaria desesperadamente de ter tido quando o meu filho tinha 2 anos.</p>
-        </section>
-
-        <section id="prova">
-            <h2>O que dizem as mães que já aplicaram:</h2>
-            
-            <blockquote>
-                <p>"Eu estava no meu limite. Li o 'SOS Birras' numa noite. No dia seguinte, usei a técnica D.A.P. na hora do banho. Pela primeira vez em semanas, não teve gritaria. Estou a chorar de alívio."</p>
-                <footer>– Juliana M. (Mãe do Léo, 2 anos e meio)</footer>
-            </blockquote>
-            
-            <blockquote>
-                <p>"A parte sobre 'lidar com a birra em público' mudou o jogo. Fui ao supermercado pela primeira vez em meses sem sentir aquele frio na barriga. Ele tentou começar, eu usei o script e... funcionou."</p>
-                <footer>– Patrícia G. (Mãe da Sofia, 3 anos)</footer>
-            </blockquote>
-
-            <blockquote>
-                <p>"Eu achava que o problema era eu, que era 'mole' demais. O guia me fez entender que não é sobre ser dura, é sobre ser inteligente. Obrigada!"</p>
-                <footer>– Carla V. (Mãe do Miguel, 2 anos)</footer>
-            </blockquote>
-        </section>
-
-        <section id="oferta">
-            <h2>Receba o Guia Completo + Bónus Exclusivos</h2>
-            <p>Ao garantir o seu acesso hoje, recebe não só o ebook, mas também estas ferramentas essenciais:</p>
-            
-            <div class="bonus-item">
-                <h3>O Ebook "SOS Birras"</h3>
-                <p>(Guia Rápido e Prático para ler numa hora) (Valor: 27,00€)</p>
-            </div>
-            
-            <div class="bonus-item">
-                <h3><strong>BÓNUS 1:</strong> O Checklist de Frigorífico "Anti-Crise"</h3>
-                <p>(Um resumo de 1 página do método D.A.P. para olhar rápido quando a crise começar.) (Valor: 17,00€)</p>
-            </div>
-            
-            <div class="bonus-item">
-                <h3><strong>BÓNUS 2:</strong> O Guia para Papás e Avós</h3>
-                <p>(Como alinhar todos na mesma estratégia, para que não desfaçam o seu trabalho.) (Valor: 10,00€)</p>
-            </div>
-
-            <p style="font-size: 1.2rem; text-align:center; margin-top: 30px;">
-                Valor Total de tudo: <s>54,00€</s><br>
-                <strong>Preço Especial de Lançamento por apenas:</strong>
-            </p>
-        </section>
-
-        <section id="preco">
-            <div class="preco-box">
-                <p class="preco-condicoes">Pagamento único de:</p>
-                <div class="preco-valor">19,00€</div>
-                <p class="preco-condicoes">(Menos do que um menu de almoço para parar meses de stress)</p>
-                
-                <a href="#link-do-checkout" class="cta-button">SIM! QUERO RESTAURAR A PAZ POR 19€!</a>
-                
-                <div class="pagamento-icones">
-                    Pagamento 100% Seguro com:<br>
-                    [LOGO MB WAY] [LOGO MULTIBANCO] [LOGO VISA/MC]
+                    <p>Imagina llegar a casa después de un día estresante. [cite_start]Entras en tu cocina, tomas un poco de miel, avena, tal vez un trozo de aguacate[cite: 26, 28, 94]. Mezclas todo siguiendo un ritual ancestral. Aplicas esa textura suave en tu rostro y sientes... alivio. Frescura. Amor propio.</p>
+                    <br>
+                    <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un libro de recetas. Es tu mapa para volver a enamorarte de ti misma, usando el poder de la naturaleza.</p>
                 </div>
             </div>
-            <p class="seguranca-texto">🔐 Compra 100% Segura | Acesso Imediato ao seu email.</p>
-        </section>
+        </div>
+    </section>
 
-        <section id="garantia">
-            <div class="selo-garantia">7 DIAS</div>
-            <h2>Garantia de Paz (ou o seu dinheiro de volta)</h2>
-            <p>Eu confio tanto neste método que o risco é 100% meu. Adquira o "SOS Birras", leia o guia, aplique o método D.A.P. na próxima crise do seu filho.</p>
-            <p>Se em <strong>7 dias</strong> você não sentir a sua casa mais calma, ou se simplesmente achar que não é para si, basta enviar um único email. Eu devolvo 100% do seu dinheiro. Sem perguntas, sem ressentimentos.</p>
-        </section>
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Lo que tu Piel Experimentará con MR Ritual</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">✨</span>
+                    <h3 class="benefit-title">Adiós Piel Opaca</h3>
+                    [cite_start]<p>Aprende a usar exfoliantes naturales como la avena y la miel para eliminar células muertas y revelar una piel nueva y luminosa desde el primer uso[cite: 28, 30].</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💧</span>
+                    <h3 class="benefit-title">Hidratación Profunda</h3>
+                    <p>Descubre el poder del Pepino y Aloe Vera. [cite_start]Evita la evaporación del agua y mantén tu rostro suave y elástico todo el día[cite: 67, 68].</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">⏳</span>
+                    <h3 class="benefit-title">Efecto Anti-Edad</h3>
+                    <p>Combate las arrugas con vitaminas A, C y E del aguacate y el efecto tensor de la clara de huevo. [cite_start]Juventud natural sin agujas[cite: 91, 113].</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌸</span>
+                    <h3 class="benefit-title">Tono Uniforme</h3>
+                    [cite_start]<p>Utiliza la cúrcuma y el limón con seguridad para atenuar manchas y unificar el tono de tu piel, devolviéndole su claridad natural[cite: 132, 150].</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="fechamento">
-            <h2>Pense nisto: O que vai custar mais caro?</h2>
-            <p>Investir 19€ hoje e ter o mapa para lidar com as birras... ou continuar no ciclo de stress, gritos e culpa por mais 6 meses?</p>
-            <p>A fase dos "terrible twos" passa. A questão é <i>como</i> você e o seu filho vão passar por ela: em guerra ou a construir uma conexão ainda mais forte.</p>
-            <p>A escolha é sua.</p>
+    <section class="offer-section">
+        <div class="container">
+            <img src="https://via.placeholder.com/400x550?text=Capa+Do+Livro+Aqui" alt="Guía Mascarillas Caseras" class="product-mockup">
             
-            <a href="#link-do-checkout" class="cta-button cta-button-small">QUERO O MEU GUIA 'SOS BIRRAS' + BÓNUS AGORA!</a>
-        </section>
-        
-        <section id="faq">
-            <h2>Perguntas Frequentes (Para Mães Ocupadas)</h2>
+            <h2 style="color: #2E3B1F; font-size: 2rem;">Todo lo que necesitas en una sola Guía Digital</h2>
+            [cite_start]<p style="max-width: 600px; margin: 10px auto; color: #555;">Recibe acceso inmediato a todas las recetas, consejos de dermatólogos y la guía de seguridad para aplicar cada mascarilla correctamente[cite: 12, 22].</p>
             
-            <details>
-                <summary>+ Eu não tenho tempo de ler um livro agora!</summary>
-                <div class="faq-resposta">
-                    <p>Perfeito. Este <i>não</i> é um livro, é um guia de ação rápida. Você lê em menos de 1 hora. O bónus do checklist é para ser visto em 30 segundos. Foi feito para mães sem tempo.</p>
-                </div>
-            </details>
+            <div class="price-box">
+                <p class="price-old">Valor Normal: €49,90</p>
+                <p class="price-new">HOY: €12,99</p> <p style="color: #e74c3c; font-weight: bold;">¡Ahorras más del 70%!</p>
+            </div>
 
-            <details>
-                <summary>+ Como posso pagar?</summary>
-                <div class="faq-resposta">
-                    <p>Pode pagar de forma fácil e segura com <strong>MB Way</strong>, <strong>Multibanco (Referência)</strong> ou <strong>Cartão de Crédito</strong>. O seu acesso é enviado assim que o pagamento é confirmado.</p>
-                </div>
-            </details>
+            <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
+                QUIERO EMPEZAR MI RITUAL DE BELLEZA
+                <span>Descarga Inmediata al Email</span>
+            </a>
+            
+            <br><br>
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                <span>💳 Tarjeta de Crédito</span>
+                <span>🔒 PayPal</span>
+                <span>🛡️ Pago Seguro</span>
+            </div>
+        </div>
+    </section>
 
-            <details>
-                <summary>+ O meu filho é muito "difícil", acho que não funciona para ele.</summary>
-                <div class="faq-resposta">
-                    <p>O método é baseado em como o cérebro da criança de 2-4 anos funciona. Não é mágica, é ciência (simplificada). Ele vai ajudá-la a entender <i>o porquê</i> por trás da birra dele, tornando-a gerenciável.</p>
-                </div>
-            </details>
+    <section style="background-color: #F9F6F0; padding: 50px 0; text-align: center;">
+        <div class="container">
+            <h3 style="margin-bottom: 20px;">🎁 Bônus Exclusivo: Soporte Directo</h3>
+            [cite_start]<p style="max-width: 700px; margin: 0 auto;">No estarás sola. Al comprar la guía, tendrás acceso a nuestro <strong>WhatsApp de Soporte</strong> para resolver dudas, pedir consejos personalizados y recibir descuentos exclusivos en el futuro[cite: 4].</p>
+        </div>
+    </section>
 
-            <details>
-                <summary>+ Como vou receber o ebook?</summary>
-                <div class="faq-resposta">
-                    <p>Imediatamente. Assim que o pagamento for aprovado (é instantâneo com MB Way ou Cartão), recebe um email com o link de acesso para download. Pode ler no <strong>telemóvel</strong>, tablet ou computador.</p>
-                </div>
-            </details>
-
-        </section>
-    </main>
+    <section class="guarantee-section">
+        <div class="container">
+            <h3 style="color: #2E3B1F; margin-bottom: 10px;">Garantía de Satisfacción MR Ritual</h3>
+            <p>Prueba las recetas. Siente las texturas. Si no sientes que tu piel agradece el cuidado natural, estamos aquí para ayudarte.</p>
+        </div>
+    </section>
 
     <footer>
-        <p>
-            <a href="/termos-e-condicoes.html">Termos e Condições</a> | 
-            <a href="/politica-de-privacidade.html">Política de Privacidade</a> |
-            <a href="mailto:[seu.email@contacto.pt]">Contacto</a>
-        </p>
-        <p>
-            <strong>[Seu Nome ou Nome da Empresa]</strong><br>
-            NIF: [Seu NIF] | Morada: [Sua Morada Completa, Portugal]
-        </p>
-        <p>
-            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
-        </p>
-        <p>
-            © 2024 [Seu Nome]. Todos os direitos reservados.
-        </p>
+        <div class="container">
+            <p>MR Ritual © 2024 - Todos los derechos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Este sitio no es parte del sitio web de Facebook o Facebook Inc. Además, este sitio no está respaldado por Facebook de ninguna manera.</p>
+            <br>
+            <a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a>
+        </div>
     </footer>
 
 </body>
