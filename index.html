@@ -3,133 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía MR Ritual - Mascarillas Caseras Naturales</title>
+    <title>Guía MR Ritual - Piel Radiante Naturalmente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* --- Estilos Gerais --- */
         :root {
             --primary-color: #6B8E23; /* Verde Oliva */
-            --text-color: #333;
+            --primary-dark: #4a6319;
+            --secondary-color: #F0F4E8;
+            --accent-color: #D4AF37; /* Dourado suave para luxo */
+            --text-color: #444;
             --bg-light: #FAFAFA;
             --white: #FFFFFF;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body { background-color: var(--bg-light); color: var(--text-color); line-height: 1.6; }
+        body { 
+            background-color: var(--bg-light); 
+            color: var(--text-color); 
+            line-height: 1.6; 
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #2E3B1F; }
+        
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- Botão CTA --- */
+        /* --- Botão CTA Pulsante --- */
         .btn-cta {
-            background: linear-gradient(135deg, #6B8E23 0%, #556B2F 100%);
+            background: linear-gradient(135deg, #6B8E23 0%, #4a6319 100%);
             color: white;
-            padding: 18px 40px;
+            padding: 20px 40px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
             border-radius: 50px;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(107, 142, 35, 0.4);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(107, 142, 35, 0.4);
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            border: none;
-            cursor: pointer;
+            border: 2px solid transparent;
             text-align: center;
+            width: 100%;
+            max-width: 450px;
         }
-        .btn-cta:hover { transform: translateY(-3px); }
-        .btn-cta span { display: block; font-size: 0.8rem; font-weight: normal; opacity: 0.9; margin-top: 5px; text-transform: none; }
+        
+        .btn-cta:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 30px rgba(107, 142, 35, 0.5);
+            background: linear-gradient(135deg, #7da52a 0%, #556B2F 100%);
+        }
+        
+        .btn-cta span { display: block; font-size: 0.85rem; font-weight: normal; opacity: 0.95; margin-top: 5px; text-transform: none; letter-spacing: 0.5px; }
 
         /* --- Hero Section --- */
         header {
-            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1576426863848-c2185fc6e3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1576426863848-c2185fc6e3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            padding: 60px 0 80px;
+            padding: 80px 0 100px;
             text-align: center;
         }
-        .hero-headline { font-size: 2.5rem; color: #2E3B1F; margin-bottom: 20px; line-height: 1.2; }
+        
+        .badge {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero-headline { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-sub { font-size: 1.3rem; color: #555; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;}
 
         /* --- Secções --- */
-        .story-section { background-color: var(--white); padding: 60px 0; }
-        .highlight-box { background-color: #F9F6F0; border-left: 5px solid var(--primary-color); padding: 20px; margin: 30px 0; font-style: italic; color: #556B2F; }
+        .section-padding { padding: 60px 0; }
         
-        .benefits-section { padding: 60px 0; background-color: #F0F4E8; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .benefit-card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .story-section { background-color: var(--white); }
+        .highlight-box { 
+            background-color: #F9F6F0; 
+            border-left: 5px solid var(--primary-color); 
+            padding: 25px; 
+            margin: 30px 0; 
+            font-style: italic; 
+            color: #556B2F;
+            font-size: 1.1rem;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .benefits-section { background-color: var(--secondary-color); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .benefit-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .benefit-card:hover { transform: translateY(-5px); }
         .benefit-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
-        .benefit-title { color: var(--primary-color); font-weight: bold; margin-bottom: 10px; font-size: 1.2rem;}
 
+        /* --- Testimonials (Prova Social) --- */
+        .testimonials-section { background-color: var(--white); text-align: center; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .testimonial-card { background: #f8f8f8; padding: 25px; border-radius: 10px; position: relative; }
+        .testimonial-text { font-style: italic; margin-bottom: 15px; }
+        .stars { color: #FFD700; letter-spacing: 2px; }
+        
+        /* --- Bonus Section --- */
+        .bonus-section { background-color: #2E3B1F; color: white; text-align: center; }
+        .bonus-section h2 { color: white; }
+        .bonus-box { border: 2px dashed rgba(255,255,255,0.3); padding: 20px; margin-top: 30px; border-radius: 10px; display: inline-block; }
+
+        /* --- Offer & Guarantee --- */
         .offer-section { padding: 80px 0; background-color: var(--white); text-align: center; }
-        .price-box { margin: 40px 0; }
-        .price-old { text-decoration: line-through; color: #999; font-size: 1.2rem; }
-        .price-new { color: #2E3B1F; font-size: 3rem; font-weight: bold; }
+        .price-box { margin: 40px 0; background: #fff; display: inline-block; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.08); width: 100%; max-width: 500px; }
+        .price-old { text-decoration: line-through; color: #aaa; font-size: 1.2rem; }
+        .price-new { color: var(--primary-dark); font-size: 3.5rem; font-weight: 800; line-height: 1; margin: 10px 0; }
+        
+        .guarantee-badge {
+            max-width: 120px;
+            margin: 30px auto;
+            display: block;
+        }
 
-        /* Imagem do Produto */
         .product-mockup {
-            max-width: 300px; /* Tamanho da imagem */
+            max-width: 350px;
             width: 100%;
             margin-bottom: 30px;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
         }
 
-        footer { background-color: #2E3B1F; color: white; text-align: center; padding: 40px 0; margin-top: 40px;}
+        footer { background-color: #1a2411; color: #aaa; text-align: center; padding: 40px 0; margin-top: 0; font-size: 0.9rem; }
         
-        @media (max-width: 768px) { .hero-headline { font-size: 1.8rem; } .btn-cta { width: 100%; } }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) { 
+            .hero-headline { font-size: 2rem; } 
+            .btn-cta { padding: 15px 20px; width: 100%; } 
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <p style="color: var(--primary-color); font-weight: bold; letter-spacing: 2px; margin-bottom: 10px;">GUÍA MR RITUAL</p>
+            <span class="badge">Nuevo Método Revelado</span>
             <h1 class="hero-headline">Recupera el Brillo Natural de tu Piel sin Gastar una Fortuna en Químicos</h1>
-            <p style="font-size: 1.2rem; color: #555; margin-bottom: 40px;">Descubre el secreto de los ingredientes naturales. Transforma tu cocina en un Spa de Lujo y tu rostro en una obra de arte en solo 15 minutos.</p>
+            <p class="hero-sub">Descubre el secreto de los ingredientes naturales. Transforma tu cocina en un Spa de Lujo y tu rostro en una obra de arte en solo 15 minutos al día.</p>
             
             <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
                 QUIERO MI PIEL RADIANTE AHORA
-                <span>(Oferta Especial por Tiempo Limitado)</span>
+                <span>(Oferta Especial - Descuento del 65%)</span>
             </a>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">🔒 Compra 100% Segura</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">🔒 Compra 100% Segura y Privada</p>
         </div>
     </header>
 
-    <section class="story-section">
+    <section class="section-padding story-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #2E3B1F;">¿Alguna vez te has mirado al espejo y has sentido que tu piel ya no eres tú?</h2>
-            <p>Sabemos cómo se siente. Gastas dinero en cremas "milagrosas" que prometen el cielo, pero tu piel sigue opaca, cansada, o con esas manchitas que insisten en quedarse. Y lo peor: tu piel se llena de químicos que no sabes ni pronunciar.</p>
+            <h2 style="text-align: center; margin-bottom: 30px;">¿Alguna vez te has mirado al espejo y has sentido que tu piel ya no eres tú?</h2>
+            <p>Sabemos cómo se siente. Gastas dinero en cremas "milagrosas" de marca que prometen el cielo, pero tu piel sigue opaca, cansada, o con esas manchitas que insisten en quedarse. Y lo peor: tu piel se llena de parabenos y conservantes que la envejecen a largo plazo.</p>
             
             <div class="highlight-box">
-                "La verdadera belleza no necesita ser complicada ni cara. La naturaleza ya nos dio todo lo que necesitamos. Solo necesitas saber cómo usarlo."
+                "La verdadera belleza no necesita ser complicada ni cara. La naturaleza ya nos dio todo lo que necesitamos. Solo necesitas las proporciones exactas."
             </div>
 
-            <p>Imagina llegar a casa después de un día estresante. Entras en tu cocina, tomas ingredientes simples [cite: 26, 28, 94] y mezclas todo siguiendo un ritual ancestral. Aplicas esa textura suave en tu rostro y sientes alivio, frescura y amor propio.</p>
-            <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un libro de recetas. Es tu mapa para volver a enamorarte de ti misma.</p>
+            <p>Imagina llegar a casa después de un día estresante. Entras en tu cocina, tomas ingredientes simples y mezclas todo siguiendo un ritual ancestral. Aplicas esa textura suave en tu rostro y sientes alivio inmediato.</p>
+            <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un PDF con recetas. Es tu mapa paso a paso para volver a enamorarte de ti misma.</p>
         </div>
     </section>
 
-    <section class="benefits-section">
+    <section class="section-padding benefits-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px; color: #2E3B1F;">Lo que tu Piel Experimentará</h2>
+            <h2 style="text-align: center; margin-bottom: 40px;">Lo que tu Piel Experimentará</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <span class="benefit-icon">✨</span>
-                    <h3 class="benefit-title">Adiós Piel Opaca</h3>
-                    <p>Aprende a usar exfoliantes naturales como la avena y la miel para eliminar células muertas y revelar una piel nueva y luminosa desde el primer uso.</p>
+                    <h3 class="benefit-title">Efecto "Glow" Inmediato</h3>
+                    <p>Aprende a usar exfoliantes enzimáticos naturales para eliminar células muertas y revelar una piel luminosa desde la primera aplicación.</p>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-icon">💧</span>
-                    <h3 class="benefit-title">Hidratación Profunda</h3>
-                    <p>Descubre el poder del Pepino y Aloe Vera. Evita la evaporación del agua y mantén tu rostro suave y elástico todo el día.</p>
+                    <h3 class="benefit-title">Hidratación Real</h3>
+                    <p>La mayoría de cremas solo actúan en la superficie. Aprende mezclas que penetran y retienen el agua para una elasticidad duradera.</p>
                 </div>
                 <div class="benefit-card">
                     <span class="benefit-icon">⏳</span>
-                    <h3 class="benefit-title">Efecto Anti-Edad</h3>
-                    <p>Combate las arrugas con vitaminas A, C y E del aguacate y el efecto tensor de la clara de huevo. Juventud natural sin agujas.</p>
+                    <h3 class="benefit-title">Rejuvenecimiento Natural</h3>
+                    <p>Activa el colágeno con las vitaminas A, C y E del aguacate y el efecto tensor de la albúmina. Juventud sin agujas.</p>
                 </div>
                 <div class="benefit-card">
-                    <span class="benefit-icon">🎁</span>
-                    <h3 class="benefit-title">Soporte Exclusivo</h3>
-                    <p>Al comprar la guía, tendrás acceso a nuestro WhatsApp de Soporte para dudas y consejos personalizados.</p>
+                    <span class="benefit-icon">📱</span>
+                    <h3 class="benefit-title">Soporte VIP</h3>
+                    <p>No estarás sola. Al comprar la guía, tendrás acceso directo para resolver dudas sobre tu tipo de piel específico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bonus-section">
+        <div class="container">
+            <h2>🎁 ¡Regalo Exclusivo si Compras Hoy!</h2>
+            <p>Para acelerar tus resultados, te regalamos:</p>
+            <div class="bonus-box">
+                <h3 style="color: #FFD700;">BONUS: "Jugos Detox para la Piel"</h3>
+                <p>Una mini-guía con las 10 bebidas que limpian tu piel desde adentro hacia afuera.</p>
+                <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">(Valorado en $15.00 - Hoy GRATIS)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding testimonials-section">
+        <div class="container">
+            <h2>Lo que dicen quienes ya lo probaron</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Nunca pensé que con cosas de mi nevera podría tener la piel mejor que con cremas de 50 dólares. ¡La mascarilla de avena es mágica!"</p>
+                    <p><strong>- María G.</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Tengo piel sensible y todo me irritaba. Estas recetas son tan suaves y efectivas. Mi rosácea ha bajado muchísimo."</p>
+                    <p><strong>- Sofia L.</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Lo compré por el precio, pero me quedé por los resultados. Es mi ritual de domingo sagrado."</p>
+                    <p><strong>- Carmen R.</strong></p>
                 </div>
             </div>
         </div>
@@ -137,33 +246,47 @@
 
     <section class="offer-section">
         <div class="container">
-            <img src="capa-livro.jpg" alt="Capa Guía Mascarillas Caseras" class="product-mockup">
+            <img src="https://placehold.co/350x500/6B8E23/FFFFFF?text=Guía+MR+Ritual\n(Portada)" alt="Capa Guía Mascarillas Caseras" class="product-mockup">
             
-            <h2 style="color: #2E3B1F; font-size: 2rem;">Todo lo que necesitas en una sola Guía Digital</h2>
-            <p>Recibe acceso inmediato a todas las recetas, consejos de dermatólogos y la guía de seguridad.</p>
+            <h2 style="color: #2E3B1F; font-size: 2rem; max-width: 600px; margin: 0 auto;">Todo lo que necesitas para transformar tu piel hoy mismo</h2>
             
             <div class="price-box">
                 <p class="price-old">Valor Normal: $29,90</p>
                 <p class="price-new">HOY: $9,90</p>
-                <p style="color: #e74c3c; font-weight: bold;">¡Ahorras 20 dólares!</p>
+                <p style="color: #e74c3c; font-weight: bold; background: #ffeceb; padding: 5px 10px; border-radius: 5px; display: inline-block;">¡Ahorras 20 dólares!</p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <ul style="text-align: left; list-style: none; margin-bottom: 20px;">
+                    <li style="margin-bottom: 10px;">✅ Guía Completa MR Ritual (PDF)</li>
+                    <li style="margin-bottom: 10px;">✅ Bonus: Recetas Detox</li>
+                    <li style="margin-bottom: 10px;">✅ Lista de Compras Económica</li>
+                    <li style="margin-bottom: 10px;">✅ Acceso Inmediato</li>
+                </ul>
+
+                <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
+                    QUIERO EMPEZAR MI RITUAL
+                </a>
             </div>
 
-            <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
-                QUIERO EMPEZAR MI RITUAL DE BELLEZA
-                <span>Descarga Inmediata al Email</span>
-            </a>
+            <div style="margin-top: 20px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2550/2550334.png" alt="Garantia de 7 Dias" style="width: 80px; display: block; margin: 0 auto 10px;">
+                <h3 style="font-size: 1.2rem;">Garantía de 7 Días</h3>
+                <p style="max-width: 500px; margin: 0 auto; font-size: 0.9rem; color: #666;">Si no amas las recetas o no sientes tu piel más suave, te devolvemos el 100% de tu dinero. Sin preguntas.</p>
+            </div>
             
             <br><br>
-            <img src="https://img.icons8.com/color/48/000000/visa.png" style="width:30px; vertical-align:middle;">
-            <img src="https://img.icons8.com/color/48/000000/mastercard.png" style="width:30px; vertical-align:middle;">
-            <img src="https://img.icons8.com/color/48/000000/paypal.png" style="width:30px; vertical-align:middle;">
-            <span style="vertical-align:middle; margin-left:10px; color:#666;">Pago Seguro</span>
+            <div style="opacity: 0.7;">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
+                <img src="https://img.icons8.com/color/48/000000/mastercard.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
+                <img src="https://img.icons8.com/color/48/000000/paypal.png" style="width:35px; vertical-align:middle; margin: 0 5px;">
+                <p style="font-size: 0.8rem; margin-top: 10px;">Pagos procesados por Hotmart. Sus datos están encriptados.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <p>MR Ritual © 2024 - Todos los derechos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Este sitio no es parte del sitio web de Facebook o Facebook Inc. Además, este sitio no está respaldado por Facebook de ninguna manera.</p>
         </div>
     </footer>
 
