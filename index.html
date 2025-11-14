@@ -95,7 +95,6 @@
         
         .story-section { background-color: var(--white); }
         
-        /* Nova Imagem de Meio (ima.jpg) */
         .story-image {
             width: 100%;
             max-width: 800px;
@@ -182,7 +181,7 @@
             align-items: center;
             gap: 15px;
             z-index: 1000;
-            transform: translateY(150%); /* Começa escondido */
+            transform: translateY(150%);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             max-width: 320px;
             border-left: 4px solid var(--primary-color);
@@ -212,7 +211,7 @@
             
             <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
                 QUIERO MI PIEL RADIANTE AHORA
-                <span>(Oferta Especial - Descuento del 65%)</span>
+                <span>(Oferta Flash - ¡Descuento del 85%!)</span>
             </a>
             <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">🔒 Compra 100% Segura y Privada</p>
         </div>
@@ -230,7 +229,7 @@
             </div>
 
             <p>Imagina llegar a casa después de un día estresante. Entras en tu cocina, tomas ingredientes simples y mezclas todo siguiendo un ritual ancestral. Aplicas esa textura suave en tu rostro y sientes alivio inmediato.</p>
-            <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un PDF con recetas. Es tu mapa paso a paso para volver a enamorarte de ti misma.</p>
+            <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un PDF con recetas. Es tu mapa paso a passo para volver a enamorarte de ti misma.</p>
         </div>
     </section>
 
@@ -316,8 +315,8 @@
                 </div>
 
                 <p class="price-old">Valor Normal: $29,90</p>
-                <p class="price-new">HOY: $9,90</p>
-                <p style="color: #e74c3c; font-weight: bold; background: #ffeceb; padding: 5px 10px; border-radius: 5px; display: inline-block;">¡Ahorras 20 dólares!</p>
+                <p class="price-new">HOY: $3,90</p>
+                <p style="color: #e74c3c; font-weight: bold; background: #ffeceb; padding: 5px 10px; border-radius: 5px; display: inline-block;">¡Ahorras 26 dólares!</p>
                 
                 <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
                 
@@ -363,25 +362,22 @@
     </div>
 
     <script>
-        // --- 1. Temporizador de Escassez (Loop) ---
+        // 1. Timer
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
-
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
-
                 display.textContent = minutes + ":" + seconds;
-
                 if (--timer < 0) {
-                    timer = duration; // Reinicia se chegar a zero
+                    timer = duration;
                 }
             }, 1000);
         }
 
-        // --- 2. Notificações de Venda ALTA FREQUÊNCIA ---
+        // 2. Notificações de Venda (Agressivo)
         const buyers = [
             { name: "Lucía R. de México", img: "https://randomuser.me/api/portraits/women/12.jpg" },
             { name: "Carmen S. de España", img: "https://randomuser.me/api/portraits/women/65.jpg" },
@@ -401,39 +397,30 @@
             const imgEl = document.getElementById('buyer-img');
             const timeEl = document.getElementById('buyer-time');
             
-            // Seleciona compradora aleatória
             const buyer = buyers[Math.floor(Math.random() * buyers.length)];
             
-            // Atualiza dados
             nameEl.textContent = buyer.name;
             imgEl.src = buyer.img;
-            timeEl.textContent = "hace " + (Math.floor(Math.random() * 5) + 1) + " minutos"; // Tempo aleatório "há X min"
+            timeEl.textContent = "hace " + (Math.floor(Math.random() * 5) + 1) + " minutos";
             
-            // Mostra o popup
             popup.classList.add('show');
             
-            // Esconde depois de 4 segundos visível
             setTimeout(() => {
                 popup.classList.remove('show');
-                
-                // AGENDA A PRÓXIMA: Intervalo MUITO curto (entre 3 a 8 segundos)
-                const randomNextTime = Math.floor(Math.random() * 5000) + 3000; 
+                const randomNextTime = Math.floor(Math.random() * 5000) + 3000; // A cada 3-8 seg
                 setTimeout(cycleNotifications, randomNextTime);
-
             }, 4000); 
         }
 
-        // Iniciar scripts
+        // Iniciar
         window.onload = function () {
-            // Inicia Timer (15 minutos)
             var fifteenMinutes = 60 * 15,
                 display = document.querySelector('#countdown');
             startTimer(fifteenMinutes, display);
-
-            // Inicia Notificações (Começa rápido em 2s)
             setTimeout(cycleNotifications, 2000);
         };
     </script>
 
 </body>
 </html>
+
