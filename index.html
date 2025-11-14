@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía MR Ritual - Piel Radiante Naturalmente</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript">
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link); 
+        } 
+        importHotmart(); 
+    </script>
+    
     <style>
         /* --- Estilos Gerais --- */
         :root {
@@ -50,6 +65,7 @@
             width: 100%;
             max-width: 450px;
             animation: pulse 2s infinite;
+            cursor: pointer; /* Importante para o link modificado */
         }
         
         @keyframes pulse {
@@ -209,7 +225,7 @@
             <h1 class="hero-headline">Recupera el Brillo Natural de tu Piel sin Gastar una Fortuna en Químicos</h1>
             <p class="hero-sub">Descubre el secreto de los ingredientes naturales. Transforma tu cocina en un Spa de Lujo y tu rostro en una obra de arte en solo 15 minutos al día.</p>
             
-            <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
+            <a onclick="return false;" href="https://pay.hotmart.com/J102918884X?checkoutMode=2" class="btn-cta hotmart-fb">
                 QUIERO MI PIEL RADIANTE AHORA
                 <span>(Oferta Flash - ¡Descuento del 85%!)</span>
             </a>
@@ -332,7 +348,7 @@
                     </li>
                 </ul>
 
-                <a href="https://pay.hotmart.com/J102918884X" class="btn-cta">
+                <a onclick="return false;" href="https://pay.hotmart.com/J102918884X?checkoutMode=2" class="btn-cta hotmart-fb">
                     QUIERO EMPEZAR MI RITUAL
                 </a>
             </div>
