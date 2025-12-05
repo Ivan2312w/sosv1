@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual Piel de Porcelana - Oferta Especial</title>
     <style>
-        /* --- ESTILO GERAL --- */
+        /* --- ESTILO GERAL E CORES (Paleta Skincare) --- */
         :root {
-            --primary: #d4a373; /* Dourado suave */
-            --accent: #e63946; /* Vermelho Urgência */
-            --bg: #fdfcf8; /* Creme claro */
+            --primary: #d4a373; /* Tom Dourado/Bege */
+            --secondary: #faedcd; /* Creme claro */
+            --accent: #e63946; /* Vermelho para urgência */
+            --green: #2a9d8f; /* Verde para sucesso/natureza */
             --text: #333;
-            --white: #ffffff;
-            --green: #2a9d8f;
+            --bg: #fdfcf8;
         }
 
         body {
@@ -25,12 +25,14 @@
         }
 
         .container {
-            max-width: 600px; /* Otimizado para Celular */
+            max-width: 600px; /* Foco total em Mobile */
             margin: 0 auto;
             padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        /* --- BARRA DE AVISO --- */
+        /* --- BARRA DE AVISO (Topo) --- */
         .top-bar {
             background-color: var(--accent);
             color: white;
@@ -41,49 +43,58 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* --- TÍTULOS --- */
+        /* --- TEXTOS E TÍTULOS --- */
         h1 {
             color: #b07d62;
-            font-size: 28px;
+            font-size: 26px;
             text-align: center;
-            line-height: 1.2;
+            line-height: 1.3;
             margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 900;
         }
 
         .sub-headline {
             text-align: center;
             font-size: 18px;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
-        /* --- IMAGEM DO PRODUTO (CAPA) --- */
-        .product-image {
+        /* --- IMAGEM DA CAPA (HERO) --- */
+        .hero-container {
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             margin-bottom: 20px;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background-color: #eee; /* Cor de fundo enquanto carrega */
         }
-        
-        .product-image img {
+
+        .hero-container img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* --- BOTÃO (CTA) --- */
+        /* --- BOTÃO DE COMPRA (CTA) --- */
         .btn {
             display: block;
             width: 100%;
             background: linear-gradient(45deg, #25D366, #128C7E);
             color: white;
-            padding: 20px;
+            padding: 20px 10px;
             text-align: center;
             border-radius: 50px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
@@ -100,188 +111,232 @@
             100% { transform: scale(1); }
         }
 
-        /* --- SEÇÃO DE DOR --- */
+        /* --- SEÇÃO DE DOR (PROBLEMA) --- */
         .pain-section {
-            background-color: #fff;
-            padding: 25px;
+            background-color: var(--secondary);
+            padding: 20px;
             border-radius: 15px;
             margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .pain-section h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #8d5524;
+        }
+
+        .check-list {
+            padding-left: 0;
         }
 
         .check-list li {
             list-style: none;
             margin-bottom: 10px;
             font-size: 16px;
+            display: flex;
+            align-items: flex-start;
         }
-        .check-list li:before { content: '❌ '; }
+        
+        .check-list li:before {
+            content: '❌';
+            margin-right: 10px;
+            font-size: 14px;
+            margin-top: 3px;
+        }
 
-        /* --- NOVA GALERIA DE IMAGENS REAIS --- */
+        /* --- GALERIA DE IMAGENS (RESULTADOS) --- */
+        .results-title {
+            text-align: center;
+            color: var(--green);
+            font-size: 22px;
+            margin-top: 40px;
+            margin-bottom: 5px;
+        }
+
         .visual-gallery {
             display: flex;
             justify-content: space-between;
             gap: 10px;
-            margin: 30px 0;
-            flex-wrap: wrap; 
+            margin: 20px 0;
+            flex-wrap: wrap;
         }
 
         .gallery-item {
             flex: 1;
-            min-width: 30%; 
+            min-width: 30%;
             text-align: center;
             margin-bottom: 15px;
         }
 
-        /* Ajuste para celular: imagens lado a lado (2 colunas) ou empilhadas */
         @media (max-width: 480px) {
             .gallery-item {
-                min-width: 45%; /* Duas por linha no celular para economizar espaço */
+                min-width: 45%; /* 2 por linha no celular */
+            }
+            .gallery-item:last-child {
+                min-width: 100%; /* A última fica grande */
             }
         }
 
         .gallery-item img {
             width: 100%;
-            height: 150px; /* Altura fixa para manter o padrão */
+            height: 150px;
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: cover; /* ISSO GARANTE QUE A FOTO DE PESSOA NÃO FIQUE ESTICADA */
-            transition: transform 0.3s ease;
         }
 
         .gallery-caption {
-            font-size: 13px;
-            color: #555;
-            margin-top: 5px;
+            font-size: 12px;
             font-weight: bold;
+            color: #666;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- SEÇÃO DE BENEFICIOS --- */
+        /* --- BENEFÍCIOS --- */
+        .benefit-list {
+            padding: 0;
+        }
         .benefit-list li {
             list-style: none;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 17px;
             font-weight: 500;
+            display: flex;
+            align-items: flex-start;
         }
-        .benefit-list li:before { content: '✅ '; }
+        .benefit-list li:before {
+            content: '✅';
+            margin-right: 10px;
+            margin-top: 2px;
+        }
 
-        /* --- DEPOIMENTOS --- */
+        /* --- DEPOIMENTOS (PROVA SOCIAL) --- */
         .testimonial {
-            background: white;
+            background: #f9f9f9;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
         .user-info {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .avatar {
-            width: 40px;
-            height: 40px;
-            background-color: #f0f0f0;
-            border-radius: 50%;
+            font-size: 24px;
             margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
         }
+        .user-name {
+            font-weight: bold;
+            font-size: 14px;
+            display: block;
+        }
+        .stars { color: #FFD700; font-size: 12px; }
 
         /* --- PREÇO --- */
         .offer-box {
-            background-color: #fff3e0;
-            border: 2px solid #d4a373;
-            padding: 20px;
+            background-color: #fffbe6;
+            border: 2px dashed #d4a373;
+            padding: 25px;
             text-align: center;
             border-radius: 15px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-        .old-price { text-decoration: line-through; color: #999; font-size: 18px; }
-        .new-price { color: var(--green); font-size: 36px; font-weight: 900; }
 
-        /* --- TIMER --- */
-        .timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--accent);
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .new-price {
+            color: var(--green);
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
             margin: 10px 0;
         }
 
-        /* --- NOTIFICAÇÃO --- */
+        /* --- NOTIFICAÇÃO FAKE --- */
         .sales-notification {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background-color: white;
-            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 12px 15px;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             z-index: 9999;
-            transform: translateX(-200%);
-            transition: transform 0.5s ease-in-out;
-            max-width: 300px;
+            transform: translateX(-150%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-left: 4px solid var(--green);
-            font-family: Arial, sans-serif;
+            max-width: 280px;
         }
         .sales-notification.show { transform: translateX(0); }
-        .sales-img { font-size: 20px; margin-right: 10px; }
+        .sales-img { font-size: 24px; margin-right: 12px; }
         .sales-text { font-size: 12px; line-height: 1.3; color: #333; }
-        .time-ago { font-size: 10px; color: #888; }
 
+        /* --- TIMER --- */
+        .timer {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent);
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        🔥 ¡OFERTA FLASH! 80% DE DESCUENTO - Solo por 15 Minutos
+        🔥 ¡OFERTA FLASH! 80% OFF - Solo por 15 Minutos
     </div>
 
     <div class="container">
         
-        <h1>Descubre el Secreto Coreano para una <span style="color:var(--accent)">"Piel de Porcelana"</span> en Casa</h1>
-        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos con ingredientes de tu cocina.</p>
+        <h1>Descubre el Secreto Coreano para una <span class="highlight">"Piel de Porcelana"</span> en Casa</h1>
+        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos usando ingredientes simples de tu cocina.</p>
 
-        <div class="product-image">
-            <img src="capa_manual.jpg" alt="Portada Manual Piel de Porcelana">
+        <div class="hero-container">
+            <img src="capa_manual.jpg" alt="Portada Manual Piel de Porcelana" />
         </div>
 
-        <div style="text-align: center;">
-            <p style="margin-bottom: 5px;">La oferta termina en:</p>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p style="margin:0; color:#777; font-size:12px;">La oferta termina en:</p>
             <div class="timer" id="countdown">15:00</div>
         </div>
 
         <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">QUIERO MI PIEL PERFECTA 👉</a>
-        <p style="text-align: center; font-size: 12px; color: #777;">🔒 Compra 100% Segura & Acceso Inmediato</p>
+        <p style="text-align: center; font-size: 11px; color: #999;">🔒 Compra 100% Segura & Entrega Inmediata por Email</p>
 
         <div class="pain-section">
-            <h2 style="color: var(--accent); font-size: 22px;">¿Te identificas con esto?</h2>
+            <h2>¿Te identificas con esto?</h2>
             <ul class="check-list">
-                <li>Te da vergüenza salir sin maquillaje.</li>
+                <li>Te da vergüenza salir a la calle sin maquillaje.</li>
                 <li>Tienes manchas oscuras en axilas o entrepierna.</li>
-                <li>Has gastado dinero en cremas que no funcionan.</li>
-                <li>Sientes que tu piel envejece rápido.</li>
+                <li>Has gastado mucho dinero en cremas que no funcionan.</li>
+                <li>Sientes que tu piel envejece más rápido de lo normal.</li>
             </ul>
+            <p style="font-size:14px; margin-bottom:0;"><strong>No es tu culpa.</strong> La industria cosmética te miente. La solución real está en la naturaleza.</p>
         </div>
 
-        <div style="text-align: center; margin-top: 30px;">
-            <h2 style="color: var(--primary); margin-bottom: 5px;">Resultados Visibles</h2>
-            <p style="font-size: 14px; color: #666; margin-top: 0;">Imágenes ilustrativas de los resultados.</p>
-        </div>
+        <h2 class="results-title">Resultados Reales</h2>
+        <p style="text-align:center; font-size:13px; color:#666; margin-top:0;">Sin químicos agresivos. 100% Natural.</p>
 
         <div class="visual-gallery">
             <div class="gallery-item">
-                <img src="pele_glass.jpg" alt="Mujer con Piel Glass Skin Brillante">
+                <img src="pele_glass.jpg" alt="Efecto Glass Skin">
                 <div class="gallery-caption">✨ Efecto Glass Skin</div>
             </div>
 
             <div class="gallery-item">
-                <img src="ingredientes_naturais.jpg" alt="Ingredientes Naturales Skincare">
-                <div class="gallery-caption">🌿 100% Natural</div>
+                <img src="ingredientes_naturais.jpg" alt="Ingredientes Naturales">
+                <div class="gallery-caption">🌿 Recetas Caseras</div>
             </div>
 
             <div class="gallery-item">
@@ -289,49 +344,57 @@
                 <div class="gallery-caption">💖 Adiós Manchas</div>
             </div>
         </div>
+
         <h2 style="text-align: center; margin-top: 40px;">Lo que vas a lograr:</h2>
         <ul class="benefit-list">
-            <li><strong>Espuma Aclaradora Viral:</strong> Aclara axilas y zonas íntimas.</li>
-            <li><strong>Nariz de Fresa:</strong> Elimina puntos negros sin dolor.</li>
+            <li><strong>Espuma Aclaradora Viral:</strong> Aclara axilas y zonas íntimas en pocas semanas.</li>
+            <li><strong>Técnica "Nariz de Fresa":</strong> Elimina puntos negros sin dolor.</li>
             <li><strong>Efecto Bótox Casero:</strong> Mascarillas tensoras naturales.</li>
-            <li><strong>Piel Glass Skin:</strong> El brillo que siempre soñaste.</li>
+            <li><strong>Piel Glow:</strong> El brillo saludable que siempre soñaste.</li>
         </ul>
 
-        <h2 style="text-align: center; margin-top: 40px;">Ellas ya cambiaron su piel 👇</h2>
+        <h2 style="text-align: center; margin-top: 40px; font-size:20px;">Ellas ya cambiaron su piel 👇</h2>
         
         <div class="testimonial">
             <div class="user-info">
-                <div class="avatar">👩🏻</div>
+                <span class="avatar">👩🏻</span>
                 <div>
-                    <strong>Valentina R.</strong> <span style="font-size:12px">🇲🇽 México</span><br>
-                    <span style="color:#FFD700">⭐⭐⭐⭐⭐</span>
+                    <span class="user-name">Valentina R.</span>
+                    <span style="font-size:11px; color:#777;">🇲🇽 México</span><br>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
                 </div>
             </div>
-            <p style="font-size: 15px; margin: 5px 0;">"Pensé que era mentira, pero la espuma aclaradora me salvó las axilas. ¡Gracias!"</p>
+            <p style="font-size: 14px; margin:5px 0;">"Pensé que era mentira por el precio, pero la espuma aclaradora me salvó las axilas. ¡Gracias!"</p>
         </div>
 
         <div class="testimonial">
             <div class="user-info">
-                <div class="avatar">👩🏽</div>
+                <span class="avatar">👩🏽</span>
                 <div>
-                    <strong>Camila S.</strong> <span style="font-size:12px">🇦🇷 Argentina</span><br>
-                    <span style="color:#FFD700">⭐⭐⭐⭐⭐</span>
+                    <span class="user-name">Camila S.</span>
+                    <span style="font-size:11px; color:#777;">🇦🇷 Argentina</span><br>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
                 </div>
             </div>
-            <p style="font-size: 15px; margin: 5px 0;">"Increíble. Mis manchas de acné desaparecieron en 15 días con la receta de cúrcuma."</p>
+            <p style="font-size: 14px; margin:5px 0;">"Increíble. Mis manchas de acné desaparecieron en 15 días con la receta de cúrcuma."</p>
         </div>
 
         <div class="offer-box">
-            <h3>OFERTA ESPECIAL LIMITADA</h3>
-            <p>Manual Completo + 3 Bonus</p>
-            <p class="old-price">Antes: $47.00 USD</p>
-            <p class="new-price">HOY: $9.00 USD</p>
+            <h3 style="margin:0; color:#d4a373;">OFERTA ESPECIAL LIMITADA</h3>
+            <p style="font-size:14px;">Manual Completo + 3 Bonus Exclusivos</p>
+            
+            <div class="old-price">Antes: $47.00 USD</div>
+            <div class="new-price">HOY: $9.00 USD</div>
             
             <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">DESCARGAR AHORA 📥</a>
+            <p style="font-size:12px; color:#555;">Acceso vitalicio al material.</p>
         </div>
 
         <br><br>
-        <p style="text-align: center; font-size: 11px; color: #ccc;">Copyright 2024 - Todos los derechos reservados.</p>
+        <footer style="text-align: center; font-size: 11px; color: #ccc; padding-bottom: 20px;">
+            <p>Copyright 2024 - Manual Piel de Porcelana<br>Todos los derechos reservados.</p>
+            <p>Este sitio no es parte de Facebook o Facebook Inc.</p>
+        </footer>
     </div>
 
     <div id="notification" class="sales-notification">
@@ -344,43 +407,63 @@
     </div>
 
     <script>
-        // 1. TIMER 15 MIN
+        // 1. Lógica do Timer de 15 Minutos
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
+
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
                 display.textContent = minutes + ":" + seconds;
-                if (--timer < 0) timer = duration;
+
+                if (--timer < 0) {
+                    timer = duration; 
+                }
             }, 1000);
         }
+
         window.onload = function () {
-            var fifteenMinutes = 60 * 15, display = document.querySelector('#countdown');
+            var fifteenMinutes = 60 * 15,
+                display = document.querySelector('#countdown');
             startTimer(fifteenMinutes, display);
         };
 
-        // 2. NOTIFICAÇÕES
+        // 2. Lógica das Notificações Fakes (Prova Social)
         const buyers = [
             { name: "Sofía", country: "de México 🇲🇽" },
             { name: "Valentina", country: "de Argentina 🇦🇷" },
-            { name: "Isabella", country: "de Venezuela 🇻🇪" },
+            { name: "Isabella", country: "de Colombia 🇨🇴" },
             { name: "Camila", country: "de España 🇪🇸" },
-            { name: "Valeria", country: "de Colombia 🇨🇴" }
+            { name: "Valeria", country: "de Chile 🇨🇱" },
+            { name: "Luciana", country: "de Perú 🇵🇪" }
         ];
 
         function showNotification() {
             const notification = document.getElementById('notification');
             const nameEl = document.getElementById('notif-name');
             const countryEl = document.getElementById('notif-country');
+            
+            // Escolhe aleatoriamente um comprador
             const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+            
             nameEl.textContent = randomBuyer.name;
             countryEl.textContent = randomBuyer.country;
+
+            // Mostra a notificação
             notification.classList.add('show');
-            setTimeout(() => { notification.classList.remove('show'); }, 4000);
+
+            // Esconde após 4 segundos
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
         }
+
+        // Inicia o ciclo de notificações a cada 7 segundos
         setInterval(showNotification, 7000); 
     </script>
+
 </body>
 </html>
