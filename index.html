@@ -3,439 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía MR Ritual - Piel Radiante Naturalmente</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <script type="text/javascript">
-        function importHotmart(){ 
-            var imported = document.createElement('script'); 
-            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
-            document.head.appendChild(imported); 
-            var link = document.createElement('link'); 
-            link.rel = 'stylesheet'; 
-            link.type = 'text/css'; 
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
-            document.head.appendChild(link); 
-        } 
-        importHotmart(); 
-    </script>
-    
+    <title>Manual Piel de Porcelana - Oferta Especial</title>
     <style>
-        /* --- Estilos Gerais --- */
+        /* --- ESTILO GERAL E BELEZA --- */
         :root {
-            --primary-color: #6B8E23; /* Verde Oliva */
-            --primary-dark: #4a6319;
-            --secondary-color: #F0F4E8;
-            --accent-color: #D4AF37; /* Dourado */
-            --alert-color: #e74c3c; /* Vermelho para urgência */
-            --text-color: #444;
-            --bg-light: #FAFAFA;
-            --white: #FFFFFF;
+            --primary: #d4a373; /* Dourado suave */
+            --accent: #e63946; /* Vermelho Urgência */
+            --bg: #fdfcf8; /* Creme claro */
+            --text: #333;
+            --white: #ffffff;
+            --green: #2a9d8f;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background-color: var(--bg-light); 
-            color: var(--text-color); 
-            line-height: 1.6; 
-            font-family: 'Open Sans', sans-serif;
-            overflow-x: hidden;
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #2E3B1F; }
-        
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container {
+            max-width: 600px; /* Foco Mobile */
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-        /* --- Botão CTA --- */
-        .btn-cta {
-            background: linear-gradient(135deg, #6B8E23 0%, #4a6319 100%);
+        /* --- BARRA DE AVISO NO TOPO --- */
+        .top-bar {
+            background-color: var(--accent);
             color: white;
-            padding: 20px 40px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            display: inline-block;
-            box-shadow: 0 10px 25px rgba(107, 142, 35, 0.4);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            border: 2px solid transparent;
             text-align: center;
-            width: 100%;
-            max-width: 450px;
-            animation: pulse 2s infinite;
-            cursor: pointer; /* Importante para o link modificado */
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        
+
+        /* --- HEADLINE (TITULO) --- */
+        h1 {
+            color: #b07d62;
+            font-size: 28px;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .sub-headline {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* --- VIDEO / IMAGEM DO PRODUTO --- */
+        .product-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            /* Placeholder para sua capa */
+            background-color: #eee;
+            height: 300px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+            border: 2px dashed #ccc;
+            overflow: hidden;
+        }
+
+        /* --- BOTÃO PULSANTE (CTA) --- */
+        .btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+        }
+
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
-        .btn-cta:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 30px rgba(107, 142, 35, 0.5);
-            background: linear-gradient(135deg, #7da52a 0%, #556B2F 100%);
+        /* --- SEÇÃO DE DOR (PROBLEMA) --- */
+        .pain-section {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .pain-section h2 {
+            color: var(--accent);
+            font-size: 22px;
+        }
+
+        .check-list li {
+            list-style: none;
+            margin-bottom: 10px;
+            font-size: 16px;
         }
         
-        .btn-cta span { display: block; font-size: 0.85rem; font-weight: normal; opacity: 0.95; margin-top: 5px; text-transform: none; letter-spacing: 0.5px; }
+        .check-list li:before {
+            content: '❌';
+            margin-right: 10px;
+        }
 
-        /* --- Hero Section --- */
-        header {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1576426863848-c2185fc6e3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 0 80px;
+        /* --- NOVO CSS PARA A GALERIA DE IMAGENS (ADICIONADO) --- */
+        .visual-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap; /* Para ficar bom no celular */
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 30%; /* Três imagens lado a lado em telas maiores */
             text-align: center;
         }
-        
-        .badge {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: inline-block;
+
+        /* Ajuste para celular: imagens ficam uma embaixo da outra se a tela for pequena */
+        @media (max-width: 480px) {
+            .gallery-item {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
         }
 
-        .hero-headline { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero-sub { font-size: 1.2rem; color: #555; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;}
-
-        /* --- Secções --- */
-        .section-padding { padding: 60px 0; }
-        
-        .story-section { background-color: var(--white); }
-        
-        .story-image {
+        .gallery-item img {
             width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 15px;
-            margin: 40px auto;
-            display: block;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            height: 150px; /* Altura fixa para ficarem alinhadas */
         }
 
-        .highlight-box { 
-            background-color: #F9F6F0; 
-            border-left: 5px solid var(--primary-color); 
-            padding: 25px; 
-            margin: 30px 0; 
-            font-style: italic; 
-            color: #556B2F;
-            font-size: 1.1rem;
-            border-radius: 0 10px 10px 0;
+        .gallery-item img:hover {
+            transform: scale(1.03);
         }
-        
-        .benefits-section { background-color: var(--secondary-color); }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .benefit-card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+
+        .gallery-caption {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+            font-weight: bold;
         }
-        .benefit-card:hover { transform: translateY(-5px); }
-        .benefit-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
 
-        /* --- Bonus Section --- */
-        .bonus-section { background-color: #2E3B1F; color: white; text-align: center; }
-        .bonus-section h2 { color: white; }
-        .bonus-box { border: 2px dashed rgba(255,255,255,0.3); padding: 30px; margin-top: 30px; border-radius: 10px; display: inline-block; max-width: 600px; }
+        /* --- SEÇÃO DE BENEFICIOS (SOLUÇÃO) --- */
+        .benefit-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            font-size: 17px;
+            font-weight: 500;
+        }
 
-        /* --- Testimonials --- */
-        .testimonials-section { background-color: var(--white); text-align: center; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .testimonial-card { background: #f8f8f8; padding: 25px; border-radius: 10px; }
-        .stars { color: #FFD700; letter-spacing: 2px; }
-        
-        /* --- Offer, Timer & Price --- */
-        .offer-section { padding: 80px 0; background-color: var(--white); text-align: center; }
-        .price-box { margin: 40px auto; background: #fff; display: block; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,0,0,0.1); width: 100%; max-width: 550px; border: 2px solid #eee; }
-        .price-old { text-decoration: line-through; color: #aaa; font-size: 1.2rem; }
-        .price-new { color: var(--primary-dark); font-size: 3.5rem; font-weight: 800; line-height: 1; margin: 10px 0; }
-        
-        /* Timer Style */
-        .timer-container {
-            background-color: #ffeceb;
-            color: var(--alert-color);
+        .benefit-list li:before {
+            content: '✅';
+            margin-right: 10px;
+        }
+
+        /* --- PROVA SOCIAL (DEPOIMENTOS) --- */
+        .testimonial {
+            background: white;
             padding: 15px;
             border-radius: 10px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            border: 1px solid #fadbd8;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .timer-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
-        .timer-count { font-size: 2rem; font-family: monospace; font-weight: 800; }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .stars { color: #FFD700; }
 
-        .product-mockup {
-            max-width: 350px;
-            width: 100%;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transform: rotate(-2deg);
+        /* --- PREÇO E OFERTA --- */
+        .offer-box {
+            background-color: #fff3e0;
+            border: 2px solid #d4a373;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 30px;
         }
 
-        /* --- Notificações de Venda (Pop-up) --- */
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 18px;
+        }
+
+        .new-price {
+            color: var(--green);
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        /* --- POPUP DE NOTIFICAÇÃO DE VENDAS --- */
         .sales-notification {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background: white;
-            padding: 15px 20px;
+            background-color: white;
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
-            gap: 15px;
-            z-index: 1000;
-            transform: translateY(150%);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 320px;
-            border-left: 4px solid var(--primary-color);
+            z-index: 9999;
+            transform: translateX(-200%); /* Começa escondido */
+            transition: transform 0.5s ease-in-out;
+            max-width: 300px;
+            border-left: 4px solid var(--green);
         }
-        .sales-notification.show { transform: translateY(0); }
-        .sales-notification img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
-        .sales-info p { font-size: 0.85rem; margin: 0; line-height: 1.3; }
-        .sales-info strong { display: block; color: var(--text-color); }
-        .sales-time { font-size: 0.75rem; color: #888; }
 
-        footer { background-color: #1a2411; color: #aaa; text-align: center; padding: 40px 0; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) { 
-            .hero-headline { font-size: 2rem; } 
-            .btn-cta { padding: 15px 20px; width: 100%; } 
-            .sales-notification { bottom: 10px; left: 10px; right: 10px; max-width: none; }
+        .sales-notification.show {
+            transform: translateX(0);
         }
+
+        .sales-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sales-text {
+            font-size: 13px;
+            line-height: 1.3;
+        }
+        .sales-text strong {
+            display: block;
+            color: #333;
+        }
+        .time-ago {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* --- CONTADOR REGRESSIVO --- */
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <span class="badge">Nuevo Método Revelado</span>
-            <h1 class="hero-headline">Recupera el Brillo Natural de tu Piel sin Gastar una Fortuna en Químicos</h1>
-            <p class="hero-sub">Descubre el secreto de los ingredientes naturales. Transforma tu cocina en un Spa de Lujo y tu rostro en una obra de arte en solo 15 minutos al día.</p>
+    <div class="top-bar">
+        🔥 ¡OFERTA FLASH! 80% DE DESCUENTO - Solo por 15 Minutos
+    </div>
+
+    <div class="container">
+        
+        <h1>Descubre el Secreto Coreano para una <span style="color:var(--accent)">"Piel de Porcelana"</span> en Casa</h1>
+        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos con ingredientes de tu cocina.</p>
+
+        <div class="product-image">
+            <img src="https://via.placeholder.com/600x400?text=TU+PORTADA+AQUI" alt="Manual Piel de Porcelana" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+
+        <div style="text-align: center;">
+            <p>La oferta termina en:</p>
+            <div class="timer" id="countdown">15:00</div>
+        </div>
+
+        <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">QUIERO MI PIEL PERFECTA 👉</a>
+        <p style="text-align: center; font-size: 12px; color: #777;">🔒 Compra 100% Segura & Acceso Inmediato</p>
+
+        <div class="pain-section">
+            <h2>¿Te identificas con esto?</h2>
+            <ul class="check-list">
+                <li>Te da vergüenza salir sin maquillaje.</li>
+                <li>Tienes manchas oscuras en axilas o entrepierna.</li>
+                <li>Has gastado dinero en cremas que no funcionan.</li>
+                <li>Sientes que tu piel envejece rápido.</li>
+            </ul>
+            <p><strong>No es tu culpa.</strong> La industria cosmética te miente. La solución real está en la naturaleza.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <h2 style="color: var(--primary); margin-bottom: 5px;">Resultados Visibles en 2 Semanas</h2>
+            <p style="font-size: 14px; color: #666; margin-top: 0;">Sin químicos agresivos, solo ingredientes naturales.</p>
+        </div>
+
+        <div class="visual-gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200x150/d4a373/ffffff?text=Piel+Glass+Skin" alt="Piel Glass Skin">
+                <div class="gallery-caption">✨ Efecto Glass Skin</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200x150/a8d5ba/ffffff?text=Ingredientes" alt="Ingredientes Naturales">
+                <div class="gallery-caption">🌿 100% Natural</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200x150/e6b8b8/ffffff?text=Sin+Manchas" alt="Piel Sin Manchas">
+                <div class="gallery-caption">💖 Adiós Manchas</div>
+            </div>
+        </div>
+        <h2 style="text-align: center; margin-top: 40px;">Lo que vas a lograr con este Manual:</h2>
+        <ul class="benefit-list">
+            <li><strong>Espuma Aclaradora Viral:</strong> Aclara axilas y zonas íntimas en semanas.</li>
+            <li><strong>Nariz de Fresa:</strong> Elimina puntos negros sin dolor.</li>
+            <li><strong>Efecto Bótox Casero:</strong> Mascarillas tensoras naturales.</li>
+            <li><strong>Piel Glass Skin:</strong> El brillo que siempre soñaste.</li>
+        </ul>
+
+        <h2 style="text-align: center; margin-top: 40px;">Ellas ya cambiaron su piel 👇</h2>
+        
+        <div class="testimonial">
+            <div class="user-info">
+                <div class="avatar">👩🏻</div>
+                <div>
+                    <strong>Valentina R.</strong> <span style="font-size:12px">🇲🇽 México</span><br>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <p>"Pensé que era mentira por el precio, pero la espuma aclaradora me salvó las axilas. ¡Gracias!"</p>
+        </div>
+
+        <div class="testimonial">
+            <div class="user-info">
+                <div class="avatar">👩🏽</div>
+                <div>
+                    <strong>Camila S.</strong> <span style="font-size:12px">🇦🇷 Argentina</span><br>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <p>"Increíble. Mis manchas de acné desaparecieron en 15 días con la receta de cúrcuma. Recomendado."</p>
+        </div>
+
+        <div class="testimonial">
+            <div class="user-info">
+                <div class="avatar">👩🏼</div>
+                <div>
+                    <strong>Lucía M.</strong> <span style="font-size:12px">🇪🇸 España</span><br>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+            <p>"La mejor inversión de mi vida. Mucho mejor que cremas de 50 euros."</p>
+        </div>
+
+        <div class="offer-box">
+            <h3>OFERTA ESPECIAL LIMITADA</h3>
+            <p>Manual Completo + 3 Bonus Exclusivos</p>
+            <p class="old-price">Antes: $47.00 USD</p>
+            <p class="new-price">HOY: $9.00 USD</p>
             
-            <a onclick="return false;" href="https://pay.hotmart.com/J102918884X?checkoutMode=2" class="btn-cta hotmart-fb">
-                QUIERO MI PIEL RADIANTE AHORA
-                <span>(Oferta Flash - ¡Descuento del 85%!)</span>
-            </a>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">🔒 Compra 100% Segura y Privada</p>
+            <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">DESCARGAR AHORA 📥</a>
         </div>
-    </header>
 
-    <section class="section-padding story-section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px;">¿Alguna vez te has mirado al espejo y has sentido que tu piel ya no eres tú?</h2>
-            <p>Sabemos cómo se siente. Gastas dinero en cremas "milagrosas" de marca que prometen el cielo, pero tu piel sigue opaca, cansada, o con esas manchitas que insisten en quedarse. Y lo peor: tu piel se llena de parabenos y conservantes que la envejecen a largo plazo.</p>
-            
-            <img src="ima.jpg" alt="Ritual de Beleza Natural" class="story-image">
+        <br><br><br>
+        <p style="text-align: center; font-size: 11px; color: #ccc;">Copyright 2024 - Todos los derechos reservados.</p>
+    </div>
 
-            <div class="highlight-box">
-                "La verdadera belleza no necesita ser complicada ni cara. La naturaleza ya nos dio todo lo que necesitamos. Solo necesitas las proporciones exactas."
-            </div>
-
-            <p>Imagina llegar a casa después de un día estresante. Entras en tu cocina, tomas ingredientes simples y mezclas todo siguiendo un ritual ancestral. Aplicas esa textura suave en tu rostro y sientes alivio inmediato.</p>
-            <p>Eso es lo que te ofrece la <strong>Guía MR Ritual</strong>. No es solo un PDF con recetas. Es tu mapa paso a passo para volver a enamorarte de ti misma.</p>
-        </div>
-    </section>
-
-    <section class="section-padding benefits-section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Lo que tu Piel Experimentará</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <span class="benefit-icon">✨</span>
-                    <h3 class="benefit-title">Efecto "Glow" Inmediato</h3>
-                    <p>Aprende a usar exfoliantes enzimáticos naturales para eliminar células muertas y revelar una piel luminosa desde la primera aplicación.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-icon">💧</span>
-                    <h3 class="benefit-title">Hidratación Real</h3>
-                    <p>La mayoría de cremas solo actúan en la superficie. Aprende mezclas que penetran y retienen el agua para una elasticidad duradera.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-icon">⏳</span>
-                    <h3 class="benefit-title">Rejuvenecimiento Natural</h3>
-                    <p>Activa el colágeno con las vitaminas A, C y E del aguacate y el efecto tensor de la albúmina. Juventud sin agujas.</p>
-                </div>
-                <div class="benefit-card">
-                    <span class="benefit-icon">📚</span>
-                    <h3 class="benefit-title">Paso a Paso Claro</h3>
-                    <p>Nada de lenguaje complicado. Recetas explicadas de forma sencilla para que consigas resultados de Spa en tu propia casa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding bonus-section">
-        <div class="container">
-            <h2>🎁 ¡Regalo Exclusivo si Compras Hoy!</h2>
-            <p>Sabemos que es difícil mantener una rutina sola. Por eso, no estarás sola.</p>
-            <div class="bonus-box">
-                <h3 style="color: #FFD700; font-size: 1.8rem; margin-bottom: 15px;">BONUS: Acceso a la "Comunidad Amigas MR Ritual"</h3>
-                <p>Al comprar la guía, recibirás acceso inmediato a nuestro <strong>Grupo Exclusivo</strong>.</p>
-                <br>
-                <ul style="text-align: left; margin-bottom: 15px; list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 8px;">👯‍♀️ <strong>Conecta:</strong> Comparte tu progreso y haz nuevas amigas.</li>
-                    <li style="margin-bottom: 8px;">💬 <strong>Soporte:</strong> ¿Tienes una duda sobre una receta? ¡Pregunta en el grupo!</li>
-                    <li style="margin-bottom: 8px;">📸 <strong>Motivación:</strong> Comparte tus fotos de "Antes y Después".</li>
-                </ul>
-                <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">(Valor Incalculable - Hoy GRATIS)</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding testimonials-section">
-        <div class="container">
-            <h2>Lo que dicen quienes ya lo probaron</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Nunca pensé que con cosas de mi nevera podría tener la piel mejor que con cremas de 50 dólares. ¡La mascarilla de avena es mágica!"</p>
-                    <p><strong>- María G.</strong></p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Me encanta el grupo de amigas. Ver los resultados de las otras chicas me motiva a cuidarme todos los domingos."</p>
-                    <p><strong>- Sofia L.</strong></p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Lo compré por el precio, pero me quedé por los resultados. Es mi ritual sagrado."</p>
-                    <p><strong>- Carmen R.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="offer-section">
-        <div class="container">
-            <img src="capa-livro.jpg" alt="Capa Guía Mascarillas Caseras" class="product-mockup">
-            
-            <h2 style="color: #2E3B1F; font-size: 2rem; max-width: 600px; margin: 0 auto;">Todo lo que necesitas para transformar tu piel hoy mismo</h2>
-            
-            <div class="price-box">
-                <div class="timer-container">
-                    <span class="timer-text">🔥 La oferta termina en:</span>
-                    <div class="timer-count" id="countdown">15:00</div>
-                </div>
-
-                <p class="price-old">Valor Normal: $29,90</p>
-                <p class="price-new">HOY: $3,90</p>
-                <p style="color: #e74c3c; font-weight: bold; background: #ffeceb; padding: 5px 10px; border-radius: 5px; display: inline-block;">¡Ahorras 26 dólares!</p>
-                
-                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-                
-                <ul style="text-align: left; list-style: none; margin-bottom: 20px; padding: 0 10px;">
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <span style="color: green; margin-right: 10px;">✅</span> Guía Completa MR Ritual (PDF)
-                    </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <span style="color: green; margin-right: 10px;">✅</span> <strong>Bonus:</strong> Acceso Comunidad de Amigas
-                    </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <span style="color: green; margin-right: 10px;">✅</span> Lista de Compras Económica
-                    </li>
-                </ul>
-
-                <a onclick="return false;" href="https://pay.hotmart.com/J102918884X?checkoutMode=2" class="btn-cta hotmart-fb">
-                    QUIERO EMPEZAR MI RITUAL
-                </a>
-            </div>
-
-            <div style="margin-top: 20px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/2550/2550334.png" alt="Garantia de 7 Dias" style="width: 80px; display: block; margin: 0 auto 10px;">
-                <h3 style="font-size: 1.2rem;">Garantía de 7 Días</h3>
-                <p style="max-width: 500px; margin: 0 auto; font-size: 0.9rem; color: #666;">Si no amas las recetas o no sientes tu piel más suave, te devolvemos el 100% de tu dinero.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>MR Ritual © 2024 - Todos los derechos reservados.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Este sitio no es parte del sitio web de Facebook o Facebook Inc.</p>
-        </div>
-    </footer>
-
-    <div class="sales-notification" id="notification-popup">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Compradora" id="buyer-img">
-        <div class="sales-info">
-            <p><strong id="buyer-name">Ana M.</strong></p>
-            <p>Acaba de comprar la <strong>Guía MR Ritual</strong></p>
-            <span class="sales-time" id="buyer-time">hace un instante</span>
+    <div id="notification" class="sales-notification">
+        <div class="sales-img">🛍️</div>
+        <div class="sales-text">
+            <strong id="notif-name">Maria</strong>
+            <span id="notif-country">de México 🇲🇽</span><br>
+            compró el Manual <span class="time-ago">hace 2 min</span>
         </div>
     </div>
 
     <script>
-        // 1. Timer
+        // 1. CONFIGURAÇÃO DO TIMER (15 MINUTOS)
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
+
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
                 display.textContent = minutes + ":" + seconds;
+
                 if (--timer < 0) {
-                    timer = duration;
+                    timer = duration; // Reinicia se acabar (para não ficar zero)
                 }
             }, 1000);
         }
 
-        // 2. Notificações de Venda (Agressivo)
-        const buyers = [
-            { name: "Lucía R. de México", img: "https://randomuser.me/api/portraits/women/12.jpg" },
-            { name: "Carmen S. de España", img: "https://randomuser.me/api/portraits/women/65.jpg" },
-            { name: "Valentina T. de Colombia", img: "https://randomuser.me/api/portraits/women/33.jpg" },
-            { name: "Isabella M. de Argentina", img: "https://randomuser.me/api/portraits/women/28.jpg" },
-            { name: "Sofía P. de Chile", img: "https://randomuser.me/api/portraits/women/90.jpg" },
-            { name: "Mariana L. de Perú", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-            { name: "Gabriela F. de México", img: "https://randomuser.me/api/portraits/women/50.jpg" },
-            { name: "Elena D. de EEUU", img: "https://randomuser.me/api/portraits/women/21.jpg" },
-            { name: "Camila R. de Ecuador", img: "https://randomuser.me/api/portraits/women/36.jpg" },
-            { name: "Laura B. de España", img: "https://randomuser.me/api/portraits/women/75.jpg" }
-        ];
-
-        function cycleNotifications() {
-            const popup = document.getElementById('notification-popup');
-            const nameEl = document.getElementById('buyer-name');
-            const imgEl = document.getElementById('buyer-img');
-            const timeEl = document.getElementById('buyer-time');
-            
-            const buyer = buyers[Math.floor(Math.random() * buyers.length)];
-            
-            nameEl.textContent = buyer.name;
-            imgEl.src = buyer.img;
-            timeEl.textContent = "hace " + (Math.floor(Math.random() * 5) + 1) + " minutos";
-            
-            popup.classList.add('show');
-            
-            setTimeout(() => {
-                popup.classList.remove('show');
-                const randomNextTime = Math.floor(Math.random() * 5000) + 3000; // A cada 3-8 seg
-                setTimeout(cycleNotifications, randomNextTime);
-            }, 4000); 
-        }
-
-        // Iniciar
         window.onload = function () {
             var fifteenMinutes = 60 * 15,
                 display = document.querySelector('#countdown');
             startTimer(fifteenMinutes, display);
-            setTimeout(cycleNotifications, 2000);
         };
-    </script>
 
+        // 2. CONFIGURAÇÃO DAS NOTIFICAÇÕES FALSAS (A PARTE PODEROSA)
+        const buyers = [
+            { name: "Sofía", country: "de México 🇲🇽" },
+            { name: "Valentina", country: "de Argentina 🇦🇷" },
+            { name: "Isabella", country: "de Venezuela 🇻🇪" },
+            { name: "Camila", country: "de España 🇪🇸" },
+            { name: "Valeria", country: "de Colombia 🇨🇴" },
+            { name: "Luciana", country: "de México 🇲🇽" },
+            { name: "Mariana", country: "de Argentina 🇦🇷" },
+            { name: "Gabriela", country: "de Chile 🇨🇱" }
+        ];
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const nameEl = document.getElementById('notif-name');
+            const countryEl = document.getElementById('notif-country');
+            
+            // Escolhe um comprador aleatório
+            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+            
+            nameEl.textContent = randomBuyer.name;
+            countryEl.textContent = randomBuyer.country;
+
+            // Mostra a notificação
+            notification.classList.add('show');
+
+            // Esconde depois de 4 segundos
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Loop infinito a cada 6-10 segundos
+        setInterval(showNotification, 7000); 
+
+    </script>
 </body>
 </html>
