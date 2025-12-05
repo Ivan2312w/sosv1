@@ -2,26 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Piel de Porcelana - Resultados Reales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manual Piel de Porcelana</title>
     <style>
-        /* --- ESTILO GERAL --- */
+        /* --- CONFIGURAÇÕES GERAIS --- */
         :root {
-            --primary: #d4a373; 
-            --secondary: #faedcd;
+            --primary: #d4a373;
             --accent: #e63946;
             --green: #2a9d8f;
             --text: #333;
             --bg: #fdfcf8;
         }
 
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -30,9 +32,11 @@
             padding: 20px;
             background: #fff;
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            position: relative;
+            padding-bottom: 80px;
         }
 
-        /* --- TOP BAR --- */
+        /* --- TOPO E HERO --- */
         .top-bar {
             background-color: var(--accent);
             color: white;
@@ -45,51 +49,29 @@
             z-index: 1000;
         }
 
-        h1 { color: #b07d62; font-size: 26px; text-align: center; line-height: 1.3; margin: 15px 0; }
-        .sub-headline { text-align: center; font-size: 18px; color: #555; margin-bottom: 25px; }
+        h1 { color: #b07d62; font-size: 26px; text-align: center; margin: 15px 0; line-height: 1.3; }
+        .sub-headline { text-align: center; font-size: 18px; color: #555; margin-bottom: 20px; }
 
-        /* --- HERO IMAGE --- */
         .hero-container {
             width: 100%;
-            margin-bottom: 20px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
         }
         .hero-container img { width: 100%; display: block; }
 
-        /* --- CTA BUTTON --- */
-        .btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            animation: pulse 2s infinite;
-            margin: 20px 0;
-            border: none;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-
-        /* --- SLIDER ANTES E DEPOIS (NOVO) --- */
-        .comparison-container {
+        /* --- SLIDER ANTES E DEPOIS --- */
+        .comparison-wrapper {
             position: relative;
             width: 100%;
-            height: 400px; /* Ajuste a altura conforme suas imagens */
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 1 / 1; 
         }
-        
+
         .comparison-image {
             position: absolute;
             top: 0;
@@ -97,25 +79,43 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none;
         }
 
         .img-after {
-            clip-path: inset(0 50% 0 0); /* Começa cortado na metade */
+            clip-path: inset(0 50% 0 0); 
         }
+
+        .label {
+            position: absolute;
+            top: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 5;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .label-before { left: 15px; border: 1px solid #ff9999; }
+        .label-after { right: 15px; border: 1px solid #99ff99; }
 
         .slider-handle {
             position: absolute;
             top: 0;
             bottom: 0;
             left: 50%;
-            width: 4px;
+            width: 3px;
             background: #fff;
-            cursor: ew-resize;
             z-index: 10;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: none;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
         }
 
-        .slider-button {
+        .handle-circle {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -123,29 +123,15 @@
             width: 40px;
             height: 40px;
             background: var(--green);
+            border: 3px solid #fff;
             border-radius: 50%;
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            border: 2px solid #fff;
-        }
-
-        .label {
-            position: absolute;
-            top: 20px;
-            padding: 5px 10px;
-            background: rgba(0,0,0,0.5);
             color: white;
-            font-size: 12px;
-            border-radius: 5px;
-            pointer-events: none;
+            font-size: 18px;
         }
-        .label-before { right: 20px; }
-        .label-after { left: 20px; z-index: 5; }
 
-        /* Input range invisível para controlar o slider */
         .slider-range {
             position: absolute;
             top: 0;
@@ -156,197 +142,210 @@
             cursor: ew-resize;
             z-index: 20;
             margin: 0;
+            touch-action: none; 
         }
 
-        /* --- FAQ (PERGUNTAS FREQUENTES) --- */
-        .faq-section { margin-top: 40px; }
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            margin-bottom: 10px;
-        }
-        .faq-question {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            position: relative;
+        /* --- NOTIFICAÇÃO DE VENDAS --- */
+        .sales-notification {
+            position: fixed;
+            z-index: 99999;
+            background-color: #fff;
+            padding: 12px 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--green);
+            bottom: 20px;
+            left: 20px;
+            transform: translateX(-120%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 300px;
         }
+
+        .sales-notification.show {
+            transform: translateX(0);
+        }
+
+        .sales-img { font-size: 20px; margin-right: 10px; }
+        .sales-text { font-size: 12px; line-height: 1.2; color: #333; }
+        .sales-text strong { color: var(--green); }
+
+        @media (max-width: 480px) {
+            .sales-notification {
+                left: 50%;
+                bottom: 20px;
+                width: 90%;
+                max-width: none;
+                transform: translate(-50%, 150%);
+            }
+            .sales-notification.show {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* --- BOTÃO DE COMPRA (Estilo Próprio + Hotmart) --- */
+        .btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+            margin: 20px 0;
+            cursor: pointer;
+            border: none;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+
+        .timer { font-size: 28px; font-weight: bold; color: var(--accent); margin: 10px 0; }
+
+        /* --- FAQ e DEPOIMENTOS --- */
+        .faq-item { border-bottom: 1px solid #eee; margin-bottom: 10px; }
+        .faq-question { background: #f9f9f9; padding: 15px; border-radius: 8px; cursor: pointer; font-weight: bold; list-style: none; display: flex; justify-content: space-between; }
+        .faq-question::-webkit-details-marker { display: none; }
         .faq-question::after { content: '+'; font-size: 20px; color: var(--green); }
         details[open] .faq-question::after { content: '-'; }
-        .faq-answer {
-            padding: 15px;
-            font-size: 14px;
-            color: #555;
-            background: #fff;
-        }
+        .faq-answer { padding: 15px; font-size: 14px; color: #555; background: #fff; }
 
-        /* --- DEPOIMENTOS REAIS --- */
-        .testimonial {
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .real-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 12px;
-            border: 2px solid var(--primary);
-        }
-        .stars { color: #FFD700; font-size: 14px; }
-        
-        /* --- PREÇO --- */
-        .offer-box {
-            background-color: #fffbe6;
-            border: 2px dashed #d4a373;
-            padding: 25px;
-            text-align: center;
-            border-radius: 15px;
-            margin-top: 40px;
-        }
+        .testimonial { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center; }
+        .real-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary); flex-shrink: 0; }
+        .test-content { font-size: 13px; }
+
+        .offer-box { background-color: #fffbe6; border: 2px dashed #d4a373; padding: 20px; text-align: center; border-radius: 15px; margin-top: 30px; }
         .old-price { text-decoration: line-through; color: #999; }
-        .new-price { color: var(--green); font-size: 42px; font-weight: 900; margin: 10px 0; }
-        .timer { font-size: 28px; font-weight: bold; color: var(--accent); }
+        .new-price { color: var(--green); font-size: 38px; font-weight: 900; }
 
     </style>
 </head>
 <body>
 
-    <div class="top-bar">🔥 OFERTA FLASH: 80% DE DESCUENTO - 15 MIN</div>
+    <div class="top-bar">🔥 OFERTA FLASH: 80% OFF - 15 MINUTOS</div>
 
     <div class="container">
         
-        <h1>Descubre el Secreto Coreano para una <span style="color:var(--accent)">"Piel de Porcelana"</span> en Casa</h1>
-        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos con ingredientes de tu cocina.</p>
+        <h1>Descubre el Secreto Coreano para una <span style="color:var(--accent)">"Piel de Porcelana"</span></h1>
+        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos.</p>
 
         <div class="hero-container">
-            <img src="capa_manual.jpg" alt="Manual Piel de Porcelana" />
+            <img src="capa_manual.jpg" alt="Manual Piel de Porcelana">
         </div>
 
         <div style="text-align: center;">
-            <p style="margin:0; font-size:12px; color:#777;">Oferta expira en:</p>
+            <p style="margin:0; font-size:12px; color:#777;">La oferta termina en:</p>
             <div class="timer" id="countdown">15:00</div>
         </div>
 
-        <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">QUIERO MI PIEL PERFECTA 👉</a>
-        
-        <h2 style="text-align:center; color:var(--green); margin-top:40px;">Mira la Transformación 👇</h2>
-        <p style="text-align:center; font-size:13px; margin-top:-10px;">Desliza para ver el cambio real.</p>
+        <a href="https://pay.hotmart.com/M103285720W?checkoutMode=2" class="btn hotmart-fb">QUIERO MI PIEL PERFECTA 👉</a>
 
-        <div class="comparison-container">
-            <img src="pele_antes.jpg" class="comparison-image" alt="Piel con Manchas">
+        <h2 style="text-align:center; color:var(--green); margin-top:40px;">Mira la Transformación 👇</h2>
+        <p style="text-align:center; font-size:13px; margin-top:-10px; color:#666;">Desliza el dedo sobre la foto.</p>
+
+        <div class="comparison-wrapper">
+            <img src="pele_antes.jpg" class="comparison-image" alt="Antes">
             <div class="label label-before">ANTES</div>
 
-            <img src="pele_depois.jpg" class="comparison-image img-after" id="afterImage" alt="Piel Limpia">
+            <img src="pele_depois.jpg" class="comparison-image img-after" id="afterImage" alt="Despues">
             <div class="label label-after">DESPUÉS</div>
 
             <div class="slider-handle" id="sliderHandle">
-                <div class="slider-button">↔</div>
+                <div class="handle-circle">↔</div>
             </div>
-
+            
             <input type="range" min="0" max="100" value="50" class="slider-range" id="sliderRange">
         </div>
+
+        <h2 style="text-align: center; margin-top: 40px;">Resultados Reales</h2>
         
-        <h2 style="text-align: center; margin-top: 50px;">Resultados de Personas Reales</h2>
-
         <div class="testimonial">
-            <div class="testimonial-header">
-                <img src="foto_cliente1.jpg" class="real-photo" alt="Cliente Feliz">
-                <div>
-                    <strong>Valentina R.</strong> <span style="font-size:12px">🇲🇽</span><br>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
+            <img src="foto_cliente1.jpg" class="real-photo" alt="Valentina">
+            <div class="test-content">
+                <strong>Valentina R.</strong> ⭐⭐⭐⭐⭐<br>
+                "Probé de todo para mi acné. En 2 semanas con la receta de arroz, mi piel cambió. Estoy enamorada."
             </div>
-            <p style="font-size: 14px; font-style: italic;">"Probé de todo para mi acné hormonal. En 2 semanas con la receta de arroz, mi piel cambió por completo. Estoy enamorada."</p>
         </div>
 
         <div class="testimonial">
-            <div class="testimonial-header">
-                <img src="foto_cliente2.jpg" class="real-photo" alt="Cliente Feliz">
-                <div>
-                    <strong>Camila S.</strong> <span style="font-size:12px">🇦🇷</span><br>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
+            <img src="foto_cliente2.jpg" class="real-photo" alt="Camila">
+            <div class="test-content">
+                <strong>Camila S.</strong> ⭐⭐⭐⭐⭐<br>
+                "Mis manchas de sol se aclararon un 80%. No gasté más en cremas caras. Directo al punto."
             </div>
-            <p style="font-size: 14px; font-style: italic;">"Mis manchas de sol en los pómulos se aclararon un 80%. No gasté más en cremas caras. El manual va directo al punto."</p>
         </div>
 
-        <div class="testimonial">
-            <div class="testimonial-header">
-                <img src="foto_cliente3.jpg" class="real-photo" alt="Cliente Feliz">
-                <div>
-                    <strong>Lucía M.</strong> <span style="font-size:12px">🇪🇸</span><br>
-                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                </div>
-            </div>
-            <p style="font-size: 14px; font-style: italic;">"Sencillo, barato y efectivo. La mascarilla tensora me quitó 5 años de encima."</p>
-        </div>
-
-        <div class="faq-section">
+        <div style="margin-top: 40px;">
             <h2 style="text-align:center; color:var(--primary);">Preguntas Frecuentes</h2>
 
             <details class="faq-item">
                 <summary class="faq-question">¿Necesito ingredientes caros?</summary>
-                <div class="faq-answer">No. El 90% de las recetas usan ingredientes que ya tienes en tu cocina o que puedes comprar en el supermercado por menos de $2 dólares (arroz, aloe vera, cúrcuma, miel, etc.).</div>
+                <div class="faq-answer">No. El 90% de las recetas usan ingredientes que ya tienes en tu cocina (arroz, aloe vera, miel).</div>
             </details>
 
             <details class="faq-item">
-                <summary class="faq-question">¿Funciona para piel grasa o sensible?</summary>
-                <div class="faq-answer">Sí. El manual incluye variaciones específicas para piel seca, grasa, mixta y sensible. Todo es natural y no agresivo.</div>
+                <summary class="faq-question">¿Funciona para piel grasa?</summary>
+                <div class="faq-answer">Sí. Incluye variaciones específicas para piel seca, grasa, mixta y sensible.</div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-question">¿Cómo recibo el Manual?</summary>
-                <div class="faq-answer">El acceso es inmediato. En cuanto realizas el pago, recibes un correo electrónico con el enlace para descargar el Manual en tu celular, tablet o computadora.</div>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">¿Tengo garantía?</summary>
-                <div class="faq-answer">Sí, tienes 7 días de garantía incondicional. Si no te gusta el contenido, te devolvemos el 100% de tu dinero sin preguntas.</div>
+                <div class="faq-answer">El acceso es inmediato por correo electrónico. Puedes leerlo en tu celular, tablet o PC.</div>
             </details>
         </div>
 
         <div class="offer-box">
-            <h3 style="margin:0; color:#d4a373;">ÚLTIMA OPORTUNIDAD</h3>
-            <p>Llévate todo el paquete hoy.</p>
+            <h3>ÚLTIMA OPORTUNIDAD</h3>
+            <p>Manual Completo + 3 Bonus</p>
             <div class="old-price">Antes: $47.00</div>
             <div class="new-price">HOY: $9.00</div>
-            <a href="SEU_LINK_DE_CHECKOUT_AQUI" class="btn">DESCARGAR AHORA 📥</a>
+            
+            <a href="https://pay.hotmart.com/M103285720W?checkoutMode=2" class="btn hotmart-fb">DESCARGAR AHORA 📥</a>
         </div>
 
-        <footer style="text-align: center; font-size: 11px; color: #ccc; padding: 20px 0;">
-            <p>Copyright 2024 - Manual Piel de Porcelana<br>Todos los derechos reservados.</p>
-        </footer>
+        <br><br>
+        <p style="text-align: center; font-size: 11px; color: #ccc;">Copyright 2024 - Todos los derechos reservados.</p>
+    </div>
+
+    <div id="notification" class="sales-notification">
+        <div class="sales-img">🔥</div>
+        <div class="sales-text">
+            <strong id="notif-name">Maria</strong> de <span id="notif-country">México</span><br>
+            acaba de comprar el Manual.
+        </div>
     </div>
 
     <script>
-        // 1. Lógica do Slider Antes/Depois
+        // 1. Script da Hotmart (Lightbox)
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link); 
+        } 
+        importHotmart(); 
+
+        // 2. Slider Antes/Depois
         const sliderRange = document.getElementById('sliderRange');
         const afterImage = document.getElementById('afterImage');
         const sliderHandle = document.getElementById('sliderHandle');
 
         sliderRange.addEventListener('input', (e) => {
             const sliderPos = e.target.value;
-            // Atualiza o corte da imagem (mostra mais ou menos da imagem 'Depois')
             afterImage.style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
-            // Move a linha branca
             sliderHandle.style.left = `${sliderPos}%`;
         });
 
-        // 2. Timer
+        // 3. Timer
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
@@ -358,10 +357,37 @@
                 if (--timer < 0) timer = duration;
             }, 1000);
         }
+
+        // 4. Notificações
+        const buyers = [
+            { name: "Sofía", country: "México" },
+            { name: "Valentina", country: "Argentina" },
+            { name: "Isabella", country: "Colombia" },
+            { name: "Camila", country: "España" },
+            { name: "Valeria", country: "Chile" },
+            { name: "Luciana", country: "Perú" }
+        ];
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const nameEl = document.getElementById('notif-name');
+            const countryEl = document.getElementById('notif-country');
+            
+            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+            nameEl.textContent = randomBuyer.name;
+            countryEl.textContent = randomBuyer.country;
+
+            notification.classList.add('show');
+            setTimeout(() => { notification.classList.remove('show'); }, 4000);
+        }
+
         window.onload = function () {
             startTimer(60 * 15, document.querySelector('#countdown'));
+            setTimeout(() => {
+                setInterval(showNotification, 8000); 
+                showNotification(); 
+            }, 3000);
         };
     </script>
-
 </body>
 </html>
