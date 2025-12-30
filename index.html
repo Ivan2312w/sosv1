@@ -50,7 +50,6 @@
             z-index: 1000;
         }
 
-        /* --- HERO SECTION --- */
         header {
             padding: 30px 20px;
             text-align: center;
@@ -84,7 +83,6 @@
             margin: 20px 0;
         }
 
-        /* --- TIMER --- */
         .timer-box {
             background: #fdf2f0;
             border: 1px solid #f8ad9d;
@@ -100,7 +98,6 @@
             display: block;
         }
 
-        /* --- CONTENT SECTIONS --- */
         .content-section { padding: 25px 20px; }
 
         .burn-ships {
@@ -130,7 +127,6 @@
             font-weight: bold;
         }
 
-        /* --- TESTIMONIALS --- */
         .testimonial-card {
             background: #fff;
             padding: 15px;
@@ -150,30 +146,48 @@
             margin-bottom: 15px;
         }
 
-        /* --- BUTTONS --- */
+        /* --- BOTÓN CENTRADO Y ANIMADO --- */
         .btn-container {
             padding: 20px;
             position: sticky;
             bottom: 0;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
             border-top: 1px solid #eee;
+            /* Centrado absoluto */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hotmart-fb {
+            display: block;
+            width: 100%;
+            max-width: 320px; /* Limita el ancho para que se vea mejor */
+            margin: 0 auto;
+            transition: transform 0.2s;
+            /* Animación constante */
+            animation: pulse-attention 1.5s infinite ease-in-out;
         }
 
         .hotmart-fb img {
             width: 100%;
-            max-width: 100%;
             height: auto;
-            transition: transform 0.2s;
+            display: block;
         }
 
-        .hotmart-fb:hover img { transform: scale(1.02); }
+        /* KEYFRAMES PARA LA ANIMACIÓN DE PULSO */
+        @keyframes pulse-attention {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-        /* --- NOTIFICATION --- */
         .notification {
             position: fixed;
-            bottom: 100px;
+            bottom: 120px;
             left: 20px;
             right: 20px;
             background: white;
@@ -182,7 +196,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
-            transform: translateY(200%);
+            transform: translateY(250%);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 1000;
             border-left: 5px solid var(--primary-glow);
@@ -192,7 +206,6 @@
         .notif-text { font-size: 12px; margin-left: 10px; }
         .notif-text strong { color: var(--accent); }
 
-        /* FAQ */
         details { margin-bottom: 10px; background: #fff; border-radius: 10px; border: 1px solid #eee; }
         summary { padding: 15px; cursor: pointer; font-weight: 700; outline: none; }
         .faq-content { padding: 0 15px 15px; font-size: 14px; color: #666; }
@@ -223,30 +236,19 @@
             <p><strong>¿Cuál de las dos eliges?</strong></p>
         </section>
 
-        <img src="Design sem nome (8).png" style="width: 100%;" alt="Banner Glow Up">
-
         <section class="content-section">
             <h2 style="text-align: center;">Lo que recibirás hoy:</h2>
-            
             <div class="checklist-item">
                 <span class="check-icon">✓</span>
-                <div>
-                    <strong>Lista de Compras Inteligente:</strong> Ahorra tiempo y dinero con los ingredientes exactos (Romero, Jengibre, Jamaica).
-                </div>
+                <div><strong>Lista de Compras Inteligente:</strong> Ahorra tiempo y dinero con los ingredientes exactos.</div>
             </div>
-
             <div class="checklist-item">
                 <span class="check-icon">✓</span>
-                <div>
-                    <strong>Calendario Interativo 21 Días:</strong> El mapa visual para que no tengas que pensar, solo marcar tu progreso.
-                </div>
+                <div><strong>Calendario Interactivo 21 Días:</strong> El mapa visual para marcar tu progreso.</div>
             </div>
-
             <div class="checklist-item">
                 <span class="check-icon">✓</span>
-                <div>
-                    <strong>Regla de los 3 Segundos:</strong> El método psicológico para vencer la pereza y actuar de inmediato.
-                </div>
+                <div><strong>Regla de los 3 Segundos:</strong> El método para vencer la pereza de inmediato.</div>
             </div>
         </section>
 
@@ -264,17 +266,10 @@
 
         <section class="content-section">
             <h2 style="text-align: center;">Lo que dicen nuestras alumnas</h2>
-            
             <div class="testimonial-card">
                 <img src="foto_cliente1.jpg" class="client-img" alt="Cliente 1">
-                <p>"Nunca pensé que algo tan simple como la lista de compras del Protocolo cambiaría tanto mi piel. ¡Me siento increíble!"</p>
+                <p>"Nunca pensé que algo tan simple como la lista de compras del Protocolo cambiaría tanto mi piel."</p>
                 <strong>- Analia L., México</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <img src="foto_cliente2 - Copy.jpg" class="client-img" alt="Cliente 2">
-                <p>"La regla de los 3 segundos me salvó. Antes procrastinaba todo, ahora mi rutina de autocuidado es sagrada."</p>
-                <strong>- Maria S., España</strong>
             </div>
         </section>
 
@@ -282,22 +277,13 @@
             <h3>Preguntas Frecuentes</h3>
             <details>
                 <summary>¿Cuándo recibo el material?</summary>
-                <div class="faq-content">El acceso es inmediato. Recibes un correo con el PDF interactivo justo después del pago.</div>
-            </details>
-            <details>
-                <summary>¿Funciona si no tengo mucho dinero?</summary>
-                <div class="faq-content">¡Sí! La lista de compras está diseñada con ingredientes naturales y económicos que encuentras en cualquier mercado.</div>
-            </details>
-            <details>
-                <summary>¿Es seguro el pago?</summary>
-                <div class="faq-content">Usamos Hotmart, la plataforma más segura del mundo para productos digitales.</div>
+                <div class="faq-content">Acceso inmediato tras el pago.</div>
             </details>
         </section>
 
         <img src="Design sem nome (9).png" style="width: 100%; padding: 20px;" alt="Garantía y Seguridad">
 
         <div class="btn-container">
-            <!-- HOTMART BUTTON INTEGRATION -->
             <script type="text/javascript">
                 function importHotmart(){ 
                     var imported = document.createElement('script'); 
@@ -314,13 +300,12 @@
             <a onclick="return false;" href="https://pay.hotmart.com/X103456412C?checkoutMode=10" class="hotmart-fb hotmart__button-checkout">
                 <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Comprar Ahora">
             </a>
-            <p style="text-align: center; font-size: 10px; color: #999; margin-top: 5px;">🔒 Pago 100% Seguro por Hotmart</p>
+            <p style="text-align: center; font-size: 10px; color: #999; margin-top: 8px; font-weight: bold;">🔒 PAGO 100% SEGURO POR HOTMART</p>
         </div>
 
         <div style="height: 50px;"></div>
     </div>
 
-    <!-- SALES NOTIFICATION -->
     <div class="notification" id="sales-notif">
         <span style="font-size: 20px;">🔥</span>
         <div class="notif-text">
