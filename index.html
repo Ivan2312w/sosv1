@@ -3,349 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Manual Piel de Porcelana</title>
+    <title>Protocolo Glow Up 2026 - Tu Transformación</title>
     <style>
-        /* --- CONFIGURAÇÕES GERAIS --- */
         :root {
-            --primary: #d4a373;
+            --primary-glow: #f8ad9d;
+            --secondary-glow: #fbc4ab;
             --accent: #e63946;
-            --green: #2a9d8f;
-            --text: #333;
-            --bg: #fdfcf8;
+            --dark: #2d2d2d;
+            --white: #ffffff;
+            --bg-soft: #fff9f8;
+            --success: #25D366;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--bg-soft);
+            color: var(--dark);
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            background: var(--white);
+            min-height: 100vh;
             position: relative;
-            padding-bottom: 80px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
         }
 
-        /* --- TOPO E HERO --- */
+        /* --- TOP ANNOUNCEMENT --- */
         .top-bar {
-            background-color: var(--accent);
+            background: var(--accent);
             color: white;
             text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 14px;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        h1 { color: #b07d62; font-size: 26px; text-align: center; margin: 15px 0; line-height: 1.3; }
-        .sub-headline { text-align: center; font-size: 18px; color: #555; margin-bottom: 20px; }
-
-        .hero-container {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-        }
-        .hero-container img { width: 100%; display: block; }
-
-        /* --- SLIDER ANTES E DEPOIS --- */
-        .comparison-wrapper {
-            position: relative;
-            width: 100%;
-            margin: 30px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            aspect-ratio: 1 / 1; 
-        }
-
-        .comparison-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        .img-after {
-            clip-path: inset(0 50% 0 0); 
-        }
-
-        .label {
-            position: absolute;
-            top: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            z-index: 5;
-            pointer-events: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .label-before { left: 15px; border: 1px solid #ff9999; }
-        .label-after { right: 15px; border: 1px solid #99ff99; }
-
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background: #fff;
-            z-index: 10;
-            pointer-events: none;
-            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
-        }
-
-        .handle-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: var(--green);
-            border: 3px solid #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-        }
-
-        .slider-range {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: ew-resize;
-            z-index: 20;
-            margin: 0;
-            touch-action: none; 
-        }
-
-        /* --- NOTIFICAÇÃO DE VENDAS --- */
-        .sales-notification {
-            position: fixed;
-            z-index: 99999;
-            background-color: #fff;
-            padding: 12px 15px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            border: 1px solid #eee;
-            border-left: 4px solid var(--green);
-            bottom: 20px;
-            left: 20px;
-            transform: translateX(-120%);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 300px;
-        }
-
-        .sales-notification.show {
-            transform: translateX(0);
-        }
-
-        .sales-img { font-size: 20px; margin-right: 10px; }
-        .sales-text { font-size: 12px; line-height: 1.2; color: #333; }
-        .sales-text strong { color: var(--green); }
-
-        @media (max-width: 480px) {
-            .sales-notification {
-                left: 50%;
-                bottom: 20px;
-                width: 90%;
-                max-width: none;
-                transform: translate(-50%, 150%);
-            }
-            .sales-notification.show {
-                transform: translate(-50%, 0);
-            }
-        }
-
-        /* --- BOTÃO DE COMPRA (Estilo Próprio + Hotmart) --- */
-        .btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
-            padding: 20px;
+        /* --- HERO SECTION --- */
+        header {
+            padding: 30px 20px;
             text-align: center;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            animation: pulse 2s infinite;
-            margin: 20px 0;
-            cursor: pointer;
-            border: none;
+            background: linear-gradient(180deg, #fff2f0 0%, #ffffff 100%);
         }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        .timer { font-size: 28px; font-weight: bold; color: var(--accent); margin: 10px 0; }
+        h1 {
+            font-size: 28px;
+            margin: 10px 0;
+            line-height: 1.2;
+            color: #4a4a4a;
+        }
 
-        /* --- FAQ e DEPOIMENTOS --- */
-        .faq-item { border-bottom: 1px solid #eee; margin-bottom: 10px; }
-        .faq-question { background: #f9f9f9; padding: 15px; border-radius: 8px; cursor: pointer; font-weight: bold; list-style: none; display: flex; justify-content: space-between; }
-        .faq-question::-webkit-details-marker { display: none; }
-        .faq-question::after { content: '+'; font-size: 20px; color: var(--green); }
-        details[open] .faq-question::after { content: '-'; }
-        .faq-answer { padding: 15px; font-size: 14px; color: #555; background: #fff; }
+        h1 span { color: var(--primary-glow); }
 
-        .testimonial { background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center; }
-        .real-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--primary); flex-shrink: 0; }
-        .test-content { font-size: 13px; }
+        .headline-badge {
+            display: inline-block;
+            background: #ffeded;
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
 
-        .offer-box { background-color: #fffbe6; border: 2px dashed #d4a373; padding: 20px; text-align: center; border-radius: 15px; margin-top: 30px; }
-        .old-price { text-decoration: line-through; color: #999; }
-        .new-price { color: var(--green); font-size: 38px; font-weight: 900; }
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(248, 173, 157, 0.3);
+            margin: 20px 0;
+        }
+
+        /* --- TIMER --- */
+        .timer-box {
+            background: #fdf2f0;
+            border: 1px solid #f8ad9d;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px;
+        }
+
+        .timer-display {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section { padding: 25px 20px; }
+
+        .burn-ships {
+            background: #2d2d2d;
+            color: white;
+            padding: 30px 20px;
+            border-radius: 25px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .burn-ships h2 { color: var(--primary-glow); margin-top: 0; }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .check-icon {
+            color: var(--success);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-container {
+            padding: 20px;
+            position: sticky;
+            bottom: 0;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-top: 1px solid #eee;
+        }
+
+        .hotmart-fb img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.2s;
+        }
+
+        .hotmart-fb:hover img { transform: scale(1.02); }
+
+        /* --- NOTIFICATION --- */
+        .notification {
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transform: translateY(200%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            border-left: 5px solid var(--primary-glow);
+        }
+
+        .notification.active { transform: translateY(0); }
+        .notif-text { font-size: 12px; margin-left: 10px; }
+        .notif-text strong { color: var(--accent); }
+
+        /* FAQ */
+        details { margin-bottom: 10px; background: #fff; border-radius: 10px; border: 1px solid #eee; }
+        summary { padding: 15px; cursor: pointer; font-weight: 700; outline: none; }
+        .faq-content { padding: 0 15px 15px; font-size: 14px; color: #666; }
 
     </style>
 </head>
 <body>
 
-    <div class="top-bar">🔥 OFERTA FLASH: 80% OFF - 15 MINUTOS</div>
+    <div class="top-bar">⏰ Oportunidad Final 2025: Cupos Limitados</div>
 
     <div class="container">
-        
-        <h1>Descubre el Secreto Coreano para una <span style="color:var(--accent)">"Piel de Porcelana"</span></h1>
-        <p class="sub-headline">Elimina Manchas, Acné y Poros Abiertos.</p>
-
-        <div class="hero-container">
-            <img src="capa_manual.jpg" alt="Manual Piel de Porcelana">
-        </div>
-
-        <div style="text-align: center;">
-            <p style="margin:0; font-size:12px; color:#777;">La oferta termina en:</p>
-            <div class="timer" id="countdown">15:00</div>
-        </div>
-
-        <a href="https://pay.hotmart.com/M103285720W?checkoutMode=2" class="btn hotmart-fb">QUIERO MI PIEL PERFECTA 👉</a>
-
-        <h2 style="text-align:center; color:var(--green); margin-top:40px;">Mira la Transformación 👇</h2>
-        <p style="text-align:center; font-size:13px; margin-top:-10px; color:#666;">Desliza el dedo sobre la foto.</p>
-
-        <div class="comparison-wrapper">
-            <img src="pele_antes.jpg" class="comparison-image" alt="Antes">
-            <div class="label label-before">ANTES</div>
-
-            <img src="pele_depois.jpg" class="comparison-image img-after" id="afterImage" alt="Despues">
-            <div class="label label-after">DESPUÉS</div>
-
-            <div class="slider-handle" id="sliderHandle">
-                <div class="handle-circle">↔</div>
-            </div>
+        <header>
+            <div class="headline-badge">EL MÉTODO 21 DÍAS PARA EL 2026</div>
+            <h1>No esperes a Enero para tener tu <span>Glow Up</span></h1>
+            <p>La guía definitiva para transformar tu piel, tu cuerpo y tu mentalidad antes de que termine el año.</p>
             
-            <input type="range" min="0" max="100" value="50" class="slider-range" id="sliderRange">
-        </div>
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="hero-img" alt="Glow Up">
 
-        <h2 style="text-align: center; margin-top: 40px;">Resultados Reales</h2>
-        
-        <div class="testimonial">
-            <img src="foto_cliente1.jpg" class="real-photo" alt="Valentina">
-            <div class="test-content">
-                <strong>Valentina R.</strong> ⭐⭐⭐⭐⭐<br>
-                "Probé de todo para mi acné. En 2 semanas con la receta de arroz, mi piel cambió. Estoy enamorada."
+            <div class="timer-box">
+                <span style="font-size: 12px; color: #888; text-transform: uppercase;">La oferta expira en:</span>
+                <span class="timer-display" id="main-timer">15:00</span>
             </div>
-        </div>
+        </header>
 
-        <div class="testimonial">
-            <img src="foto_cliente2.jpg" class="real-photo" alt="Camila">
-            <div class="test-content">
-                <strong>Camila S.</strong> ⭐⭐⭐⭐⭐<br>
-                "Mis manchas de sol se aclararon un 80%. No gasté más en cremas caras. Directo al punto."
-            </div>
-        </div>
+        <section class="burn-ships">
+            <h2>¿Vas a seguir igual?</h2>
+            <p>"Quemar los barcos" significa que no hay vuelta atrás. En 2026 vas a mirarte al espejo y sentir orgullo, o vas a arrepentirte de no haber empezado hoy.</p>
+            <p><strong>¿Cuál de las dos eliges?</strong></p>
+        </section>
 
-        <div style="margin-top: 40px;">
-            <h2 style="text-align:center; color:var(--primary);">Preguntas Frecuentes</h2>
-
-            <details class="faq-item">
-                <summary class="faq-question">¿Necesito ingredientes caros?</summary>
-                <div class="faq-answer">No. El 90% de las recetas usan ingredientes que ya tienes en tu cocina (arroz, aloe vera, miel).</div>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">¿Funciona para piel grasa?</summary>
-                <div class="faq-answer">Sí. Incluye variaciones específicas para piel seca, grasa, mixta y sensible.</div>
-            </details>
-
-            <details class="faq-item">
-                <summary class="faq-question">¿Cómo recibo el Manual?</summary>
-                <div class="faq-answer">El acceso es inmediato por correo electrónico. Puedes leerlo en tu celular, tablet o PC.</div>
-            </details>
-        </div>
-
-        <div class="offer-box">
-            <h3>ÚLTIMA OPORTUNIDAD</h3>
-            <p>Manual Completo + 3 Bonus</p>
-            <div class="old-price">Antes: $47.00</div>
-            <div class="new-price">HOY: $9.00</div>
+        <section class="content-section">
+            <h2 style="text-align: center;">Lo que recibirás hoy:</h2>
             
-            <a href="https://pay.hotmart.com/M103285720W?checkoutMode=2" class="btn hotmart-fb">DESCARGAR AHORA 📥</a>
+            <div class="checklist-item">
+                <span class="check-icon">✓</span>
+                <div>
+                    <strong>Lista de Compras Inteligente:</strong> Ahorra tiempo y dinero con los ingredientes exactos (Romero, Jengibre, Jamaica).
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <span class="check-icon">✓</span>
+                <div>
+                    <strong>Calendario Interativo 21 Días:</strong> El mapa visual para que no tengas que pensar, solo marcar tu progreso.
+                </div>
+            </div>
+
+            <div class="checklist-item">
+                <span class="check-icon">✓</span>
+                <div>
+                    <strong>Regla de los 3 Segundos:</strong> El método psicológico para vencer la pereza y actuar de inmediato.
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 20px; background: #fffbe6;">
+            <p style="text-decoration: line-through; color: #999; margin: 0;">Valor Original: $27.00</p>
+            <h2 style="font-size: 45px; margin: 0; color: var(--success);">$3.90</h2>
+            <p style="font-size: 12px; color: #666;">Acceso Vitalicio + Actualizaciones 2026</p>
         </div>
 
-        <br><br>
-        <p style="text-align: center; font-size: 11px; color: #ccc;">Copyright 2024 - Todos los derechos reservados.</p>
+        <section class="content-section">
+            <h3>Preguntas Frecuentes</h3>
+            <details>
+                <summary>¿Cuándo recibo el material?</summary>
+                <div class="faq-content">El acceso es inmediato. Recibes un correo con el PDF interactivo justo después del pago.</div>
+            </details>
+            <details>
+                <summary>¿Funciona si no tengo mucho dinero?</summary>
+                <div class="faq-content">¡Sí! La lista de compras está diseñada con ingredientes naturales y económicos que encuentras en cualquier mercado.</div>
+            </details>
+            <details>
+                <summary>¿Es seguro el pago?</summary>
+                <div class="faq-content">Usamos Hotmart, la plataforma más segura del mundo para productos digitales.</div>
+            </details>
+        </section>
+
+        <div class="btn-container">
+            <!-- HOTMART BUTTON INTEGRATION -->
+            <script type="text/javascript">
+                function importHotmart(){ 
+                    var imported = document.createElement('script'); 
+                    imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+                    document.head.appendChild(imported); 
+                    var link = document.createElement('link'); 
+                    link.rel = 'stylesheet'; 
+                    link.type = 'text/css'; 
+                    link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+                    document.head.appendChild(link);
+                } 
+                importHotmart(); 
+            </script> 
+            <a onclick="return false;" href="https://pay.hotmart.com/X103456412C?checkoutMode=2" class="hotmart-fb hotmart__button-checkout">
+                <img src='https://static.hotmart.com/img/btn-buy-green.png' alt="Comprar Ahora">
+            </a>
+            <p style="text-align: center; font-size: 10px; color: #999; margin-top: 5px;">🔒 Pago 100% Seguro por Hotmart</p>
+        </div>
+
+        <div style="height: 50px;"></div>
     </div>
 
-    <div id="notification" class="sales-notification">
-        <div class="sales-img">🔥</div>
-        <div class="sales-text">
-            <strong id="notif-name">Maria</strong> de <span id="notif-country">México</span><br>
-            acaba de comprar el Manual.
+    <!-- SALES NOTIFICATION -->
+    <div class="notification" id="sales-notif">
+        <span style="font-size: 20px;">🔥</span>
+        <div class="notif-text">
+            <span id="notif-name">Ana</span> de <span id="notif-city">Madrid</span> acaba de unirse al <strong>Reto 21 Días</strong>.
         </div>
     </div>
 
     <script>
-        // 1. Script da Hotmart (Lightbox)
-        function importHotmart(){ 
-            var imported = document.createElement('script'); 
-            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
-            document.head.appendChild(imported); 
-            var link = document.createElement('link'); 
-            link.rel = 'stylesheet'; 
-            link.type = 'text/css'; 
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
-            document.head.appendChild(link); 
-        } 
-        importHotmart(); 
-
-        // 2. Slider Antes/Depois
-        const sliderRange = document.getElementById('sliderRange');
-        const afterImage = document.getElementById('afterImage');
-        const sliderHandle = document.getElementById('sliderHandle');
-
-        sliderRange.addEventListener('input', (e) => {
-            const sliderPos = e.target.value;
-            afterImage.style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
-            sliderHandle.style.left = `${sliderPos}%`;
-        });
-
-        // 3. Timer
+        // 1. Timer Logic
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
@@ -358,35 +296,25 @@
             }, 1000);
         }
 
-        // 4. Notificações
-        const buyers = [
-            { name: "Sofía", country: "México" },
-            { name: "Valentina", country: "Argentina" },
-            { name: "Isabella", country: "Colombia" },
-            { name: "Camila", country: "España" },
-            { name: "Valeria", country: "Chile" },
-            { name: "Luciana", country: "Perú" }
-        ];
+        // 2. Fake Sales Notification
+        const names = ["Sofía", "Lucía", "Martina", "Valentina", "Camila", "Isabella", "Valeria"];
+        const cities = ["Ciudad de México", "Bogotá", "Santiago", "Buenos Aires", "Madrid", "Lima"];
 
-        function showNotification() {
-            const notification = document.getElementById('notification');
-            const nameEl = document.getElementById('notif-name');
-            const countryEl = document.getElementById('notif-country');
+        function showNotif() {
+            const notif = document.getElementById('sales-notif');
+            document.getElementById('notif-name').textContent = names[Math.floor(Math.random()*names.length)];
+            document.getElementById('notif-city').textContent = cities[Math.floor(Math.random()*cities.length)];
             
-            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
-            nameEl.textContent = randomBuyer.name;
-            countryEl.textContent = randomBuyer.country;
-
-            notification.classList.add('show');
-            setTimeout(() => { notification.classList.remove('show'); }, 4000);
+            notif.classList.add('active');
+            setTimeout(() => {
+                notif.classList.remove('active');
+            }, 4000);
         }
 
         window.onload = function () {
-            startTimer(60 * 15, document.querySelector('#countdown'));
-            setTimeout(() => {
-                setInterval(showNotification, 8000); 
-                showNotification(); 
-            }, 3000);
+            startTimer(60 * 15, document.querySelector('#main-timer'));
+            setInterval(showNotif, 12000);
+            setTimeout(showNotif, 3000);
         };
     </script>
 </body>
